@@ -228,7 +228,49 @@
                     <a href="#auth" class="toc-h2 toc-link" data-title="Authentications">\auth</a>
                   </li>
                   <li>
-                    <a href="#verfify" class="toc-h2 toc-link" data-title="Authentications">\verfify</a>
+                    <a href="#verify" class="toc-h2 toc-link" data-title="Authentications">\verify</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#categories" class="toc-h1 toc-link" data-title="Categories">Categories</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-of-all-categories" class="toc-h2 toc-link" data-title="Categories">List of all categories</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#artists" class="toc-h1 toc-link" data-title="Artists">Artists</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#update-an-artist" class="toc-h2 toc-link" data-title="Artists">Update an Artist</a>
+                  </li>
+                  <li>
+                    <a href="#get-an-artist" class="toc-h2 toc-link" data-title="Artists">Get an Artist</a>
+                  </li>
+                  <li>
+                    <a href="#follow-an-artist" class="toc-h2 toc-link" data-title="Artists">Follow an Artist</a>
+                  </li>
+                  <li>
+                    <a href="#un-follow-an-artist" class="toc-h2 toc-link" data-title="Artists">Un-follow an Artist</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#post" class="toc-h1 toc-link" data-title="Post">Post</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-all-post" class="toc-h2 toc-link" data-title="Post">List all Post</a>
+                  </li>
+                  <li>
+                    <a href="#create-post" class="toc-h2 toc-link" data-title="Post">Create Post</a>
+                  </li>
+                  <li>
+                    <a href="#edit-post" class="toc-h2 toc-link" data-title="Post">Edit Post</a>
+                  </li>
+                  <li>
+                    <a href="#delete-post" class="toc-h2 toc-link" data-title="Post">Delete Post</a>
                   </li>
               </ul>
           </li>
@@ -244,16 +286,32 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='introduction'>Introduction</h1><h1 id='authentications'>Authentications</h1><h2 id='auth'>\auth</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the documentation for the Kannects API!</p>
+
+<p>Kannects app is micro vloging platform for artist/musician/singers.
+This documents defined behaviour of Kannects application.</p>
+
+<ol>
+<li><p>An Artist can get into the system by provide his/her mobile 
+number with an requested OTP provider by API.</p></li>
+<li><p>An Artist can update his profile with varity of option like
+basic details,music files etc.</p></li>
+<li><p>An Artist can follow other artist.</p></li>
+<li><p>An Artist can visit other artist profiles.</p></li>
+<li><p>An Artist will received a customize feed items based on his profile
+/preferences.</p></li>
+</ol>
+<h1 id='authentications'>Authentications</h1><h2 id='auth'>\auth</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP is send succefully"</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+  </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP is send successfully"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>\auth API is using for the mobile number Auhentiaction</p>
+<p>\auth API is using for the mobile number Authentication</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://base_url.com/api/auth</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -275,19 +333,22 @@
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422     Unprocessable entry.  In case of invalid Phone Number</aside>
-<h2 id='verfify'>\verfify</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/"</span>
-  -H <span class="s2">"Authorization: "</span> 
+<aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
+<h2 id='verify'>\verify</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/verify"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w"> </span><span class="p">{</span><span class="w">
-   </span><span class="s2">"mobile_number"</span><span class="p">:</span><span class="w"> </span><span class="s2">"9953055456"</span><span class="p">,</span><span class="w">
-   </span><span class="s2">"OTP"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP_number"</span><span class="w">
- </span><span class="p">}</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">""</span><span class="w"> </span><span class="p">,</span><span class="w">
+             </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"email_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"artist"</span><span class="w">
+             </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>\auth API is using for the mobile number Auhentiaction</p>
+<p>\verify API is using for the mobile number verification with OTP number </p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://base_url.com/api/verify</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -311,12 +372,365 @@
 <td>OTP number</td>
 <td>integer</td>
 <td>true</td>
-<td>Please enter the valid mobile number</td>
+<td>Please enter the correct OTP number</td>
 <td>6</td>
 </tr>
 </tbody></table>
 
-<aside class="warning">422  Unprocessable entry.  In case of invalid Phone Number</aside>
+<aside class="warning"> 422 Unprocessable entry. Please enter the Correct OTP </aside>
+<h1 id='categories'>Categories</h1><h2 id='list-of-all-categories'>List of all categories</h2><pre class="highlight plaintext"><code>curl "http://base_url/api/categories-list" 
+ -H " authentication : bearer access token"
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"categories"</span><span class="w"> </span><span class="p">:[</span><span class="w">
+    </span><span class="s2">"1"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"musician"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"2"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"gitarist"</span><span class="p">,</span><span class="w">
+     </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET http://base_url.com/api/categories-list</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>categories_id</td>
+<td>integer</td>
+<td>true</td>
+<td>Categories id number</td>
+<td>id:1</td>
+</tr>
+<tr>
+<td>categories_name</td>
+<td>string</td>
+<td>true</td>
+<td>Categories name</td>
+<td>Artist</td>
+</tr>
+</tbody></table>
+
+<p><aside class="warning"> 422 Unprocessable entry.</aside></p>
+<h1 id='artists'>Artists</h1><h2 id='update-an-artist'>Update an Artist</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist/update/id"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"first_name"</span><span class="p">:</span><span class="s2">"vikram"</span><span class="w"> </span><span class="p">,</span><span class="w">
+             </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sharma"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"email_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vikramkannav@gmail.com"</span><span class="p">,</span><span class="w">
+             </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"artist"</span><span class="w">
+             </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>PUT https://base_url.com/api/artist/update/id</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>first_name</td>
+<td>string</td>
+<td>true</td>
+<td>Please enter First Name</td>
+<td>first_name</td>
+</tr>
+<tr>
+<td>last_name</td>
+<td>string</td>
+<td>true</td>
+<td>Please enter Last Name</td>
+<td>last_name</td>
+</tr>
+<tr>
+<td>email_id</td>
+<td>email</td>
+<td>true</td>
+<td>Please enter the email</td>
+<td>email_id</td>
+</tr>
+<tr>
+<td>category</td>
+<td>string</td>
+<td>true</td>
+<td>Please select Catgeory</td>
+<td>Artist</td>
+</tr>
+</tbody></table>
+<h2 id='get-an-artist'>Get an Artist</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_list"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"artist-list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"artist_name"</span><span class="p">:</span><span class="s2">"vikram"</span><span class="w"> </span><span class="p">,</span><span class="w">
+             </span><span class="s2">"artist_image"</span><span class="p">:</span><span class="s2">"artist_image"</span><span class="w">             </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://base_url.com/api/artist/list</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>artist_name</td>
+<td>string</td>
+<td>true</td>
+<td>Artist Name</td>
+<td></td>
+</tr>
+<tr>
+<td>artist_image</td>
+<td>image</td>
+<td>true</td>
+<td>Artist Image</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='follow-an-artist'>Follow an Artist</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_follow_list"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"artist-follow-list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"artist_name"</span><span class="p">:</span><span class="s2">"vikram"</span><span class="w"> </span><span class="p">,</span><span class="w">
+             </span><span class="s2">"artist_image"</span><span class="p">:</span><span class="s2">"artist_image"</span><span class="w">             </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET https://base_url.com/api/artist/follow/list</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>artist_name</td>
+<td>string</td>
+<td>true</td>
+<td>Artist Name</td>
+<td></td>
+</tr>
+<tr>
+<td>artist_image</td>
+<td>image</td>
+<td>true</td>
+<td>Artist Image</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='un-follow-an-artist'>Un-follow an Artist</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_follow_list"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"artist-unfollow-list"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+             </span><span class="s2">"artist_name"</span><span class="p">:</span><span class="s2">"vikram"</span><span class="w"> </span><span class="p">,</span><span class="w">
+             </span><span class="s2">"artist_image"</span><span class="p">:</span><span class="s2">"artist_image"</span><span class="w">             </span><span class="p">}</span><span class="w">
+                  </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET https://base_url.com/api/artist/unfollow/list</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>artist_name</td>
+<td>string</td>
+<td>true</td>
+<td>Artist Name</td>
+<td></td>
+</tr>
+<tr>
+<td>artist_image</td>
+<td>image</td>
+<td>true</td>
+<td>Artist Image</td>
+<td></td>
+</tr>
+</tbody></table>
+<h1 id='post'>Post</h1><h2 id='list-all-post'>List all Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/post-list"</span> 
+  -H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="s2">"post-list"</span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="mi">1</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="s2">"post_description"</span><span class="p">:</span><span class="s2">"post_description"</span><span class="w">
+               </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://base_url.com/api/post/list</code></p>
+<h3 id='query-parameters'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>post_id</td>
+<td>integer</td>
+<td>true</td>
+<td>Post ID</td>
+<td></td>
+</tr>
+<tr>
+<td>post_description</td>
+<td>string</td>
+<td>true</td>
+<td>Post decription</td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="warning"> 422 Unprocessable entry.</aside>
+<h2 id='create-post'>Create Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/post/create"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"post"</span><span class="p">:{</span><span class="w">
+      </span><span class="s2">"post_id"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"post_description"</span><span class="w"> </span><span class="p">:</span><span class="s2">"post_description"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST https://base_url.com/api/post/create</code></p>
+<h3 id='query-parameters-2'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Post</td>
+<td>string</td>
+<td>true</td>
+<td>Please enter you post description</td>
+<td>NULL</td>
+</tr>
+</tbody></table>
+
+<p><aside class="warning"> 422 Unprocessable entry.</aside></p>
+<h2 id='edit-post'>Edit Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/post/edit/:id"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"post"</span><span class="w"> </span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"post_description"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">"post_description"</span><span class="w">
+     </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT https://base_url.com/api/post/:id/edit</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Post</td>
+<td>string</td>
+<td>true</td>
+<td>Please update your post</td>
+<td>post description</td>
+</tr>
+</tbody></table>
+
+<p><aside class="warning"> 422 Unprocessable entry.</aside></p>
+<h2 id='delete-post'>Delete Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist/update/id"</span> 
+-H <span class="s2">" authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+   </span><span class="s2">"message"</span><span class="p">:</span><span class="s2">"Post is delete successfully"</span><span class="p">,</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>Delete https://base_url.com/api/post/:id/delete</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Post</td>
+<td>string</td>
+<td>true</td>
+<td>your post description</td>
+<td>post description</td>
+</tr>
+</tbody></table>
+
+<p><aside class="warning"> 422 Unprocessable entry.</aside></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
