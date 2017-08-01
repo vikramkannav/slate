@@ -10,11 +10,11 @@ curl "http://base_url/api/auth"
 
 ```json
   {
-  "message": "OTP is send succefully"
-  }
+  "message": "OTP is send successfully"
+   }
 ```
 
-\auth API is using for the mobile number Auhentiaction
+\auth API is using for the mobile number Authentication
 
 ###HTTP Request
 
@@ -26,26 +26,29 @@ curl "http://base_url/api/auth"
     --------- | ------- | ------- | ----------- | -----------
     mobile_number | integer |true | Please enter the valid mobile number | 10
  
-<aside class="warning"> 422 	Unprocessable entry.  In case of invalid Phone Number</aside>
+<aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
 
 
-## \verfify
+## \verify
 
 ```shell
-curl "http://base_url/api/"
-  -H "Authorization: " 
+curl "http://base_url/api/verify"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
- {
-   "mobile_number": "9953055456",
-   "OTP" : "OTP_number"
- }
+  {
+   "user": {
+             "first_name":"" ,
+             "last_name": "",
+             "email_id": "",
+             "category": "artist"
+             }
+  }
 ```
 
-\auth API is using for the mobile number Auhentiaction
+\verify API is using for the mobile number verification with OTP number 
 
 ###HTTP Request
 
@@ -56,7 +59,7 @@ curl "http://base_url/api/"
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
     mobile_number | integer |true | Please enter the valid mobile number | 10
-    OTP number | integer |true | Please enter the valid mobile number | 6
+    OTP number | integer |true | Please enter the correct OTP number  | 6
  
-<aside class="warning">422 	Unprocessable entry.  In case of invalid Phone Number</aside>
+<aside class="warning"> 422 Unprocessable entry. Please enter the Correct OTP </aside>
 
