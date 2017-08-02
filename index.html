@@ -259,7 +259,7 @@
                     <a href="#followings" class="toc-h2 toc-link" data-title="Users">Followings</a>
                   </li>
                   <li>
-                    <a href="#follow-unfollow" class="toc-h2 toc-link" data-title="Users">Follow/Unfollow</a>
+                    <a href="#follow-un-follow" class="toc-h2 toc-link" data-title="Users">Follow/Un follow</a>
                   </li>
               </ul>
           </li>
@@ -308,7 +308,9 @@ basic details,music files etc.</p></li>
 <li><p>An Artist will received a customize feed items based on his profile
 /preferences.</p></li>
 </ol>
-<h1 id='authentications'>Authentications</h1><h2 id='otp-generation'>OTP generation</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
+<h1 id='authentications'>Authentications</h1><h2 id='otp-generation'>OTP generation</h2>
+<p>This API is used for the OTP generation.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -347,7 +349,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
-<h2 id='verify-otp'>Verify OTP</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/verify"</span>
+<h2 id='verify-otp'>Verify OTP</h2>
+<p>This API is used for the mobile number verification with OTP number.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/verify"</span>
 -H <span class="s2">" Authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -369,9 +373,7 @@ basic details,music files etc.</p></li>
         </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"treehsgstsdde3573"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>\verify API is using for the mobile number verification with OTP number </p>
-<h3 id='http-request-2'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://base_url.com/api/verify</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
 <table><thead>
@@ -407,7 +409,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
-<h2 id='refresh-token'>Refresh Token</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/refresh_token"</span>
+<h2 id='refresh-token'>Refresh Token</h2>
+<p>This API is used for the regenerating the auth token via refresh token.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/refresh_token"</span>
 -H <span class="s2">" Authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -451,7 +455,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
-<h1 id='categories'>Categories</h1><h2 id='categories-2'>Categories</h2><pre class="highlight plaintext"><code>curl "http://base_url/api/categories" 
+<h1 id='categories'>Categories</h1><h2 id='categories-2'>Categories</h2>
+<p>This API is used for the list of categories. </p>
+<pre class="highlight plaintext"><code>curl "http://base_url/api/categories" 
  -H " Authentication : bearer access token"
 </code></pre>
 <blockquote>
@@ -497,7 +503,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <p><aside class="warning"> 422 Unprocessable entry.</aside></p>
-<h1 id='users'>Users</h1><h2 id='users-2'>Users</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_list"</span> 
+<h1 id='users'>Users</h1><h2 id='users-2'>Users</h2>
+<p>This API is used for the user list.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_list"</span> 
 -H <span class="s2">"Authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -650,7 +658,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
-<h2 id='followers'>Followers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_follow"</span> 
+<h2 id='followers'>Followers</h2>
+<p>This API is used for the Followers list.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_follow"</span> 
 -H <span class="s2">"Authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -698,7 +708,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
-<h2 id='followings'>Followings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/followings"</span> 
+<h2 id='followings'>Followings</h2>
+<p>This API used for Following list.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/followings"</span> 
 -H <span class="s2">"Authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -746,18 +758,18 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
-<h2 id='follow-unfollow'>Follow/Unfollow</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/follow"</span> 
+<h2 id='follow-un-follow'>Follow/Un follow</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/follow"</span> 
 -H <span class="s2">" authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"following_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://base_url.com/api/follow</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
@@ -785,7 +797,9 @@ basic details,music files etc.</p></li>
 <td></td>
 </tr>
 </tbody></table>
-<h1 id='post'>Post</h1><h2 id='posts'>Posts</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts"</span> 
+<h1 id='post'>Post</h1><h2 id='posts'>Posts</h2>
+<p>This API is used for the list of post.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts"</span> 
   -H <span class="s2">" authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -820,7 +834,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
-<h2 id='create-post'>Create Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts"</span> 
+<h2 id='create-post'>Create Post</h2>
+<p>This API is used for the Post creation.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts"</span> 
 -H <span class="s2">" authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -856,7 +872,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <p><aside class="warning"> 422 Unprocessable entry.</aside></p>
-<h2 id='update-post'>Update Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts/:id"</span> 
+<h2 id='update-post'>Update Post</h2>
+<p>This API is used for Post update.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts/:id"</span> 
 -H <span class="s2">" authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -891,7 +909,9 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <p><aside class="warning"> 422 Unprocessable entry.</aside></p>
-<h2 id='delete-post'>Delete Post</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist/delete/:id"</span> 
+<h2 id='delete-post'>Delete Post</h2>
+<p>This API is used for the Post delete.</p>
+<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist/delete/:id"</span> 
 -H <span class="s2">" authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
