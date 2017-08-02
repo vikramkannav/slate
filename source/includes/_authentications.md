@@ -39,7 +39,7 @@ This API is used for the mobile number verification with OTP number.
 
 ```shell
 curl "http://base_url/api/verify"
--H " Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
@@ -85,7 +85,7 @@ This API is used for the regenerating the auth token via refresh token.
 
 ```shell
 curl "http://base_url/api/refresh_token"
--H " Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:

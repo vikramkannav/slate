@@ -7,7 +7,7 @@ This API is used for the list of categories.
 
 ```shells
 curl "http://base_url/api/categories" 
- -H " Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
