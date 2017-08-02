@@ -1,6 +1,6 @@
 # Authentications
 
-## \auth
+## OTP generation
 
 ```shell
 curl "http://base_url/api/auth" 
@@ -14,7 +14,7 @@ curl "http://base_url/api/auth"
    }
 ```
 
-\auth API is using for the mobile number Authentication
+auth API is using for the mobile number Authentication
 
 ###HTTP Request
 
@@ -31,7 +31,7 @@ curl "http://base_url/api/auth"
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
 
 
-## \verify
+## Verify OTP
 
 ```shell
 curl "http://base_url/api/verify"
@@ -52,7 +52,9 @@ curl "http://base_url/api/verify"
   		"work_on_album": "",
   		"file_type": "",
   		"play_instrument ": "",
-  		"instrument_name": ""
+  		"instrument_name": "",
+  		"refresh_token": "wjhdduyd6378399",
+  		"auth_token":"treehsgstsdde3573"
   	}
   }
 ```
@@ -70,6 +72,49 @@ curl "http://base_url/api/verify"
     mobile_number | integer |true | Please enter the valid mobile number | 
     OTP number | integer |true | Please enter the correct OTP number  | 
     country_code | integer |true | Please enter the country code      | +91
+     
+ 
+<aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
+
+## Refresh Token
+
+```shell
+curl "http://base_url/api/refresh_token"
+-H " Authentication : bearer access token"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+  {
+   	"user": {
+   		"first_name": "",
+   		"last_name": "",
+   		"email_id": "",
+   		"category": "artist",
+   		"age": "",
+   		"profession": "",
+   		"work_on_album": "",
+   		"file_type": "",
+   		"play_instrument ": "",
+   		"instrument_name": "",
+   		"refresh_token": "wjhdduyd6378399"   		
+   	},
+   	"auth_token":"treehsgstsdde3573"
+   }
+```
+
+
+###HTTP Request
+
+`POST http://base_url.com/api/refresh_token`
+
+### Query Parameters
+
+    Parameter | Type | Required | Description| Default
+    --------- | ------- | ------- | ----------- | -----------
+    refresh_token | string |true | Refresh Token | 
+    
      
  
 <aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
