@@ -225,10 +225,13 @@
             <a href="#authentications" class="toc-h1 toc-link" data-title="Authentications">Authentications</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#auth" class="toc-h2 toc-link" data-title="Authentications">\auth</a>
+                    <a href="#otp-generation" class="toc-h2 toc-link" data-title="Authentications">OTP generation</a>
                   </li>
                   <li>
-                    <a href="#verify" class="toc-h2 toc-link" data-title="Authentications">\verify</a>
+                    <a href="#verify-otp" class="toc-h2 toc-link" data-title="Authentications">Verify OTP</a>
+                  </li>
+                  <li>
+                    <a href="#refresh-token" class="toc-h2 toc-link" data-title="Authentications">Refresh Token</a>
                   </li>
               </ul>
           </li>
@@ -305,7 +308,7 @@ basic details,music files etc.</p></li>
 <li><p>An Artist will received a customize feed items based on his profile
 /preferences.</p></li>
 </ol>
-<h1 id='authentications'>Authentications</h1><h2 id='auth'>\auth</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
+<h1 id='authentications'>Authentications</h1><h2 id='otp-generation'>OTP generation</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -314,7 +317,7 @@ basic details,music files etc.</p></li>
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP is send successfully"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>\auth API is using for the mobile number Authentication</p>
+<p>auth API is using for the mobile number Authentication</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://base_url.com/api/auth</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -344,7 +347,7 @@ basic details,music files etc.</p></li>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
-<h2 id='verify'>\verify</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/verify"</span>
+<h2 id='verify-otp'>Verify OTP</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/verify"</span>
 -H <span class="s2">" Authentication : bearer access token"</span>
 </code></pre>
 <blockquote>
@@ -361,7 +364,9 @@ basic details,music files etc.</p></li>
         </span><span class="s2">"work_on_album"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
         </span><span class="s2">"play_instrument "</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"instrument_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+        </span><span class="s2">"instrument_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wjhdduyd6378399"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"treehsgstsdde3573"</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -398,6 +403,50 @@ basic details,music files etc.</p></li>
 <td>true</td>
 <td>Please enter the country code</td>
 <td>+91</td>
+</tr>
+</tbody></table>
+
+<aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
+<h2 id='refresh-token'>Refresh Token</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/refresh_token"</span>
+-H <span class="s2">" Authentication : bearer access token"</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"first_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"email_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"artist"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"age"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"profession"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"work_on_album"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"file_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"play_instrument "</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"instrument_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wjhdduyd6378399"</span><span class="w">          
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"treehsgstsdde3573"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST http://base_url.com/api/refresh_token</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>refresh_token</td>
+<td>string</td>
+<td>true</td>
+<td>Refresh Token</td>
+<td></td>
 </tr>
 </tbody></table>
 
