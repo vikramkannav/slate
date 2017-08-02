@@ -2,6 +2,8 @@
 
 ## Posts
 
+This API is used for the list of post.
+
 ```shell
 curl "http://base_url/api/posts" 
   -H " authentication : bearer access token"
@@ -27,6 +29,8 @@ curl "http://base_url/api/posts"
 
 
 ## Create Post
+
+This API is used for the Post creation.
 
 ```shell
 curl "http://base_url/api/posts" 
@@ -61,6 +65,8 @@ curl "http://base_url/api/posts"
 
 ## Update Post
 
+This API is used for Post update.
+
 ```shell
 curl "http://base_url/api/posts/:id" 
 -H " authentication : bearer access token"
@@ -94,6 +100,8 @@ curl "http://base_url/api/posts/:id"
 
 
 ## Delete Post
+
+This API is used for the Post delete.
 
 ```shell
 curl "http://base_url/api/artist/delete/:id" 

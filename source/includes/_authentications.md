@@ -2,6 +2,8 @@
 
 ## OTP generation
 
+This API is used for the OTP generation.
+
 ```shell
 curl "http://base_url/api/auth" 
 ```
@@ -33,6 +35,8 @@ auth API is using for the mobile number Authentication
 
 ## Verify OTP
 
+This API is used for the mobile number verification with OTP number.
+
 ```shell
 curl "http://base_url/api/verify"
 -H " Authentication : bearer access token"
@@ -59,7 +63,6 @@ curl "http://base_url/api/verify"
   }
 ```
 
-\verify API is using for the mobile number verification with OTP number 
 
 ###HTTP Request
 
@@ -77,6 +80,8 @@ curl "http://base_url/api/verify"
 <aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
 
 ## Refresh Token
+
+This API is used for the regenerating the auth token via refresh token.
 
 ```shell
 curl "http://base_url/api/refresh_token"

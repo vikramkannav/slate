@@ -3,6 +3,8 @@
 
 ## Users
 
+This API is used for the user list.
+
 ```shell
 curl "http://base_url/api/artist_list" 
 -H "Authentication : bearer access token"
@@ -89,6 +91,8 @@ curl "http://base_url/api/users/id:"
     
 ## Followers
 
+This API is used for the Followers list.
+
 ```shell
 curl "http://base_url/api/artist_follow" 
 -H "Authentication : bearer access token"
@@ -127,6 +131,8 @@ curl "http://base_url/api/artist_follow"
 
 ## Followings
 
+This API used for Following list.
+
 ```shell
 curl "http://base_url/api/followings" 
 -H "Authentication : bearer access token"
@@ -164,7 +170,7 @@ curl "http://base_url/api/followings"
 
 
 
-## Follow/Unfollow
+## Follow/Un follow
 
 ```shell
 curl "http://base_url/api/follow" 
@@ -174,12 +180,12 @@ curl "http://base_url/api/follow"
 > The above command returns JSON structured like this:
 
 ```json
-  {
-  	"user": {
-  		"following_id": 1,
-  		"status": true
-  	}
-  }
+{
+	"user": {
+		"following_id": 1,
+		"status": true
+	}
+}
 ```
 ###HTTP Request
 
