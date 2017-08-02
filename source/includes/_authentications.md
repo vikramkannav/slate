@@ -1,4 +1,4 @@
-# Authentications
+# Authentication
 
 ## OTP generation
 
@@ -12,7 +12,7 @@ curl "http://base_url/api/auth"
 
 ```json
   {
-  "message": "OTP is send successfully"
+  "message": "OTP is sent successfully"
    }
 ```
 
@@ -26,8 +26,8 @@ auth API is using for the mobile number Authentication
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | Please enter the valid mobile number | 
-    country_code | integer |true | Please enter the country code      | +91
+    mobile_number | integer |true | mobile_number | 
+    country_code | integer |true | country_code      | +91
     
     
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
@@ -56,10 +56,10 @@ curl "http://base_url/api/verify"
   		"work_on_album": "",
   		"file_type": "",
   		"play_instrument ": "",
-  		"instrument_name": "",
-  		"refresh_token": "wjhdduyd6378399",
-  		"auth_token":"treehsgstsdde3573"
-  	}
+  		"instrument_name": ""
+    	},
+  	"refresh_token": "wjhdduyd6378399" ,
+     "auth_token":"treehsgstsdde3573"
   }
 ```
 
@@ -72,12 +72,12 @@ curl "http://base_url/api/verify"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | Please enter the valid mobile number | 
-    OTP number | integer |true | Please enter the correct OTP number  | 
-    country_code | integer |true | Please enter the country code      | +91
+    mobile_number | integer |true | mobile_number | 
+    otp_number | integer |true   | otp_number      | 
+    country_code | integer |true | country_code    | +91
      
  
-<aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
+<aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
 
 ## Refresh Token
 
@@ -103,8 +103,9 @@ curl "http://base_url/api/refresh_token"
    		"file_type": "",
    		"play_instrument ": "",
    		"instrument_name": "",
-   		"refresh_token": "wjhdduyd6378399"   		
+   		  		
    	},
+   	"refresh_token": "wjhdduyd6378399" ,
    	"auth_token":"treehsgstsdde3573"
    }
 ```
@@ -118,9 +119,9 @@ curl "http://base_url/api/refresh_token"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    refresh_token | string |true | Refresh Token | 
+    refresh_token | string |true | refresh_token | 
     
      
  
-<aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
+<aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
 

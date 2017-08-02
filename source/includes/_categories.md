@@ -37,4 +37,4 @@ curl "http://base_url/api/categories"
               |         |         |             |
               |         |         |             |
         
- <aside class="warning"> 422 Unprocessable entry.</aside>
+ <aside class="warning"> 404 Not Found.</aside>

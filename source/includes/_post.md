@@ -6,12 +6,34 @@ This API is used for the list of post.
 
 ```shell
 curl "http://base_url/api/posts" 
-  -H " authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
+{
+	"posts": [{
+			"post_id": 1,
+			"description": "post_description",
+			"user": {
+				"id": 1,
+				"name": "vikram",
+				"image": "artist_image"
+			}
+		},
+		{
+			"post_id": 1,
+			"description": "post_description",
+			"user": {
+				"id": 2,
+				"name": "vikram",
+				"image": "artist_image"
+			}
+		}
+	],
+	"message": "Post created successfully"
+}
  ```
 
 ###HTTP Request
@@ -25,7 +47,7 @@ curl "http://base_url/api/posts"
               |         |         |             |
               |        |          |             |
 
-<aside class="warning"> 422 Unprocessable entry.</aside>
+<aside class="warning"> 404 Not Found.</aside>
 
 
 ## Create Post
@@ -69,7 +91,7 @@ This API is used for Post update.
 
 ```shell
 curl "http://base_url/api/posts/:id" 
--H " authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
@@ -105,7 +127,7 @@ This API is used for the Post delete.
 
 ```shell
 curl "http://base_url/api/artist/delete/:id" 
--H " authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:

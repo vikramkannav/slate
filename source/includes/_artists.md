@@ -7,7 +7,7 @@ This API is used for the user list.
 
 ```shell
 curl "http://base_url/api/artist_list" 
--H "Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
@@ -39,12 +39,12 @@ curl "http://base_url/api/artist_list"
               |         |         |            |
              |         |         |            |
    
-<aside class="warning"> 422 Unprocessable entry.</aside>
+<aside class="warning"> 404 Not Found.</aside>
 ## Update User
 
 ```shell
 curl "http://base_url/api/users/id:" 
--H "Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
@@ -91,11 +91,9 @@ curl "http://base_url/api/users/id:"
     
 ## Followers
 
-This API is used for the Followers list.
-
 ```shell
 curl "http://base_url/api/artist_follow" 
--H "Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
@@ -126,16 +124,14 @@ curl "http://base_url/api/artist_follow"
              |          |         |            |
              |          |         |            |
         
-<aside class="warning"> 422 Unprocessable entry.</aside>
+<aside class="warning"> 404 Not Found </aside>
 
 
 ## Followings
 
-This API used for Following list.
-
 ```shell
 curl "http://base_url/api/followings" 
--H "Authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
@@ -166,26 +162,26 @@ curl "http://base_url/api/followings"
                  |          |         |            |
                  |          |         |            |
             
-<aside class="warning"> 422 Unprocessable entry.</aside>
+<aside class="warning"> 404 Not Found </aside>
 
 
 
-## Follow/Un follow
+## Follow/Unfollow
 
 ```shell
 curl "http://base_url/api/follow" 
--H " authentication : bearer access token"
+-H "Authentication:Bearer access token"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-	"user": {
-		"following_id": 1,
-		"status": true
-	}
-}
+  {
+  	"user": {
+  		"following_id": 1,
+  		"status": true
+  	}
+  }
 ```
 ###HTTP Request
 
@@ -197,3 +193,4 @@ curl "http://base_url/api/follow"
     --------- | ------- | ------- | ----------- | -----------
              |          |         |              |
              |          |         |               |
+<aside class="warning"> 401 Unauthorized entry.</aside>
