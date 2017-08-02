@@ -24,8 +24,10 @@ curl "http://base_url/api/auth"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | Please enter the valid mobile number | 10
- 
+    mobile_number | integer |true | Please enter the valid mobile number | 
+    country_code | integer |true | Please enter the country code      | +91
+    
+    
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
 
 
@@ -33,18 +35,25 @@ curl "http://base_url/api/auth"
 
 ```shell
 curl "http://base_url/api/verify"
+-H " Authentication : bearer access token"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
   {
-   "user": {
-             "first_name":"" ,
-             "last_name": "",
-             "email_id": "",
-             "category": "artist"
-             }
+  	"user": {
+  		"first_name": "",
+  		"last_name": "",
+  		"email_id": "",
+  		"category": "artist",
+  		"age": "",
+  		"profession": "",
+  		"work_on_album": "",
+  		"file_type": "",
+  		"play_instrument ": "",
+  		"instrument_name": ""
+  	}
   }
 ```
 
@@ -58,8 +67,10 @@ curl "http://base_url/api/verify"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | Please enter the valid mobile number | 10
-    OTP number | integer |true | Please enter the correct OTP number  | 6
+    mobile_number | integer |true | Please enter the valid mobile number | 
+    OTP number | integer |true | Please enter the correct OTP number  | 
+    country_code | integer |true | Please enter the country code      | +91
+     
  
-<aside class="warning"> 422 Unprocessable entry. Please enter the Correct OTP </aside>
+<aside class="warning"> 401 Unprocessable entry. Please enter the Correct OTP </aside>
 

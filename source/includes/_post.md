@@ -1,32 +1,27 @@
 # Post
 
-## List all Post
+## Posts
 
 ```shell
-curl "http://base_url/api/post-list" 
+curl "http://base_url/api/posts" 
   -H " authentication : bearer access token"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-   "post-list":{
-    "id":1 ,
-    "post_description":"post_description"
-               }
  ```
 
 ###HTTP Request
 
-`GET https://base_url.com/api/post/list`
+`GET https://base_url.com/api/posts`
 
 ### Query Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    post_id   | integer | true    | Post ID    |
-    post_description | string | true | Post decription
-
+              |         |         |             |
+              |        |          |             |
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
 
@@ -34,39 +29,40 @@ curl "http://base_url/api/post-list"
 ## Create Post
 
 ```shell
-curl "http://base_url/api/post/create" 
+curl "http://base_url/api/posts" 
 -H " authentication : bearer access token"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-  "post":{
-      "post_id" : 1,
-      "post_description" :"post_description"
-     }
-   }
+ {
+ 	"post": {
+ 		"post_id": 1,
+ 		"description": "post_description"
+ 	},
+ 	"message": "Post created successfully"
+ }
    
    ```
 
 ###HTTP Request
 
-`POST https://base_url.com/api/post/create`
+`POST https://base_url.com/api/posts`
 
 ### Query Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    Post      | string | true   | Please enter you post description| NULL
+    description | string | true   | Please enter you post description| 
 
  <aside class="warning"> 422 Unprocessable entry.</aside>
 
 
-## Edit Post
+## Update Post
 
 ```shell
-curl "http://base_url/api/post/edit/:id" 
+curl "http://base_url/api/posts/:id" 
 -H " authentication : bearer access token"
 ```
 
@@ -74,24 +70,25 @@ curl "http://base_url/api/post/edit/:id"
 
 ```json
    {
-  "post" :{
-    "id": 1,
-    "post_description" : "post_description"
-     }
+   	"post": {
+   		"id": 1,
+   		"description": "post_description"
+   	},
+   	 	"message": "Post Updated successfully"
    }
 ```
 
 
 ###HTTP Request
 
-`PUT https://base_url.com/api/post/:id/edit`
+`PUT https://base_url.com/api/posts/:id`
 
 
 ### Query Parameters
 
      Parameter | Type | Required | Description| Default
      --------- | ------- | ------- | ----------- | -----------
-     Post      | string | true   | Please update your post| post description
+     description | string | true  | Please update your post| 
 
  <aside class="warning"> 422 Unprocessable entry.</aside>
 
@@ -99,7 +96,7 @@ curl "http://base_url/api/post/edit/:id"
 ## Delete Post
 
 ```shell
-curl "http://base_url/api/artist/update/id" 
+curl "http://base_url/api/artist/delete/:id" 
 -H " authentication : bearer access token"
 ```
 
@@ -107,19 +104,19 @@ curl "http://base_url/api/artist/update/id"
 
 ```json
    {
-   "message":"Post is delete successfully",
+   	"message": "Post deleted successfully"
    }
 ```
 
 ###HTTP Request
 
-`Delete https://base_url.com/api/post/:id/delete`
+`DELETE https://base_url.com/api/posts/:id`
 
 ### Query Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    Post      |  string | true  | your post description | post description
-
+             |          |        |              |
+  
 
  <aside class="warning"> 422 Unprocessable entry.</aside>

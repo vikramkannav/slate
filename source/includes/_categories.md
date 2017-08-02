@@ -1,33 +1,38 @@
 
 #Categories
 
-##List of all categories
+##Categories
 
 ```shells
-curl "http://base_url/api/categories-list" 
- -H " authentication : bearer access token"
+curl "http://base_url/api/categories" 
+ -H " Authentication : bearer access token"
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
   {
-  "categories" :[
-    "1" : "musician",
-    "2" : "gitarist",
-     ]
+  	"categories": [{
+  			"id": 1,
+  			"type": "musician"
+  		},
+  		{
+  			"id": 2,
+  			"type": "gitarist"
+  		}
+  	]
   }
 ```
 
 ###HTTP Request
 
-`GET http://base_url.com/api/categories-list`
+`GET http://base_url.com/api/categories`
 
 ### Query Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    categories_id|integer|true | Categories id number | id:1      
-    categories_name|string|true |Categories name | Artist    
- 
+              |         |         |             |
+              |         |         |             |
+        
  <aside class="warning"> 422 Unprocessable entry.</aside>
