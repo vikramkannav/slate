@@ -98,7 +98,7 @@ curl -X POST \
      
 <aside class="warning">422 Unprocessable entry </aside>
 
-## Refresh Token
+## Retrieve access Token
 
 This API is used for the regenerating the auth token via refresh token.
 This API is an authentication API request in which needs to pass auth token in the request header.
