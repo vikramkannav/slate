@@ -3,9 +3,19 @@
 ## OTP generation
 
 This API is used for the OTP generation.
+This is open API where Auth token is not required to be passed in header.
 
 ```shell
-curl "http://base_url/api/auth" 
+curl -X POST \
+  https://base_url.com/api/auth \
+  -H 'accept: application/json' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+	"mobile_number": "9876543210",
+	"country_code": "+1"
+}'
+" 
 ```
 
 > The above command returns JSON structured like this:
@@ -16,7 +26,6 @@ curl "http://base_url/api/auth"
    }
 ```
 
-auth API is using for the mobile number Authentication
 
 ###HTTP Request
 
@@ -27,7 +36,7 @@ auth API is using for the mobile number Authentication
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
     mobile_number | integer |true | mobile_number | 
-    country_code | integer |true | country_code      | +91
+    country_code | integer |true | country_code      | +1
     
     
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
@@ -36,10 +45,21 @@ auth API is using for the mobile number Authentication
 ## Verify OTP
 
 This API is used for the mobile number verification with OTP number.
+This API is an authentication API request in which needs to pass auth token in the request header.
+
 
 ```shell
-curl "http://base_url/api/verify"
--H "Authentication:Bearer access token"
+curl -X POST \
+   http://base_url.com/api/verify \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '{
+	"mobile_number": "9876543210",
+	 "otp_number" :"2345"
+	"country_code": "+1"
+}'
 ```
 
 > The above command returns JSON structured like this:
@@ -72,9 +92,9 @@ curl "http://base_url/api/verify"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | mobile_number | 
-    otp_number | integer |true   | otp_number      | 
-    country_code | integer |true | country_code    | +91
+    mobile_number | integer |true | mobile_number of the user| 
+    otp_number | integer |true   | otp_number recived on the number     | 
+    country_code | integer |true | country_code of the user country   | +91
      
  
 <aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
@@ -82,10 +102,19 @@ curl "http://base_url/api/verify"
 ## Refresh Token
 
 This API is used for the regenerating the auth token via refresh token.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
-curl "http://base_url/api/refresh_token"
--H "Authentication:Bearer access token"
+curl -X POST \
+  http://base_url/api/refresh_token \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -H 'postman-token: 61fe122e-6edc-982a-8d55-6ffa9fad4421' \
+  -d '{
+	"refresh_token": "wjhdduyd6378399"
+}'
 ```
 
 > The above command returns JSON structured like this:
@@ -119,9 +148,9 @@ curl "http://base_url/api/refresh_token"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    refresh_token | string |true | refresh_token | 
+    refresh_token | string |true | refresh_token of the user| 
     
      
  
-<aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
+<aside class="warning"> 422 Unprocessable entry. </aside>
 

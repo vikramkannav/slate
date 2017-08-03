@@ -4,11 +4,16 @@
 ## Users
 
 This API is used for the user list.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
-curl "http://base_url/api/artist_list" 
--H "Authentication:Bearer access token"
-```
+  curl -X GET \
+    https://base_url.com/api/users \
+    -H 'accept: application/json' \
+    -H 'authorization: Token token=treehsgstsdde3573' \
+    -H 'cache-control: no-cache' \
+    -H 'content-type: application/json' \
+  ```
 
 > The above command returns JSON structured like this:
 
@@ -39,12 +44,30 @@ curl "http://base_url/api/artist_list"
               |         |         |            |
              |         |         |            |
    
-<aside class="warning"> 404 Not Found.</aside>
+<aside class="warning"> 422 Unprocessable Entity.</aside>
 ## Update User
 
 ```shell
-curl "http://base_url/api/users/id:" 
--H "Authentication:Bearer access token"
+curl -X PUT \
+  http://base_url/api/users/id: \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  -d '  {
+    "user": {
+        "first_name": "vikram",
+        "last_name": "sharma",
+        "email_id": "vikramkannav@gmail.com",
+        "category": "artist",
+        "age": 30,
+        "profession": "vikram@gmail.com",
+        "work_on_album": "no",
+        "file_type": "song.mp3",
+        "play_instrument ": "yes",
+        "instrument_name": "gitar"
+    }
+  }
 ```
 
 > The above command returns JSON structured like this:
@@ -74,27 +97,31 @@ curl "http://base_url/api/users/id:"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    first_name| string | true | Please enter First Name |   
-    last_name|  string | true | Please enter Last Name |  
-    email_id |  string   | true | Please enter the email |  
-    category|   string | true | Please select Catgeory |  Artist
-    age|   number | true | Please enter you age       |  
-    profession | string | true | Please enter you email |
-    work_on_album | boolean | true | Please enter work on album |
-    file_type | string    | true | Please upload video or audio |
-    play_instrument | boolean | true | Play instrument Yes or No |
-    instrument_type | string  | true | Please enter the instrument name|
+    first_name| string | true | first_name of the user |   
+    last_name|  string | true | last_name of the user|  
+    email_id |  string   | true | email_id of the user the user|  
+    category|   string | true | category |  Artist
+    age|   number | true | age of the user     |  
+    profession | string | true | profession of the user |
+    work_on_album | boolean | true | work_on_album of the user|
+    file_type | string    | true | file_type  |
+    play_instrument | boolean | true | play_instrument user |
+    instrument_type | string  | true | instrument_type type of the user|
 
-<aside class="warning"> 422 Unprocessable entry.</aside>
+<aside class="warning"> 404 Not Found.</aside>
 
 
     
 ## Followers
 
 ```shell
-curl "http://base_url/api/artist_follow" 
--H "Authentication:Bearer access token"
-```
+   curl -X GET \
+   https://base_url.com/api/followers \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+ ```
 
 > The above command returns JSON structured like this:
 
@@ -124,14 +151,18 @@ curl "http://base_url/api/artist_follow"
              |          |         |            |
              |          |         |            |
         
-<aside class="warning"> 404 Not Found </aside>
+<aside class="warning"> 422 Unprocessable Entity. </aside>
 
 
-## Followings
+## Following
 
 ```shell
-curl "http://base_url/api/followings" 
--H "Authentication:Bearer access token"
+   curl -X GET \
+   https://base_url.com/api/following \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 
 > The above command returns JSON structured like this:
@@ -162,30 +193,32 @@ curl "http://base_url/api/followings"
                  |          |         |            |
                  |          |         |            |
             
-<aside class="warning"> 404 Not Found </aside>
+<aside class="warning"> 422 Unprocessable Entity. </aside>
 
 
 
-## Follow/Unfollow
+## Follow
 
 ```shell
-curl "http://base_url/api/follow" 
--H "Authentication:Bearer access token"
-```
+curl -X POST \
+  https://base_url.com/api/followers \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+  ```
 
 > The above command returns JSON structured like this:
 
 ```json
-  {
-  	"user": {
-  		"following_id": 1,
-  		"status": true
-  	}
-  }
+   {
+     "message": "User follow successfully."
+    }
+  
 ```
 ###HTTP Request
 
-`POST https://base_url.com/api/follow`
+`POST https://base_url.com/api/follow/:id`
 
 ### Query Parameters
 
@@ -193,4 +226,39 @@ curl "http://base_url/api/follow"
     --------- | ------- | ------- | ----------- | -----------
              |          |         |              |
              |          |         |               |
-<aside class="warning"> 401 Unauthorized entry.</aside>
+             
+             
+<aside class="warning">422 Unprocessable entry.</aside>
+
+
+##Unfollow
+
+```shell
+ curl -X DELETE \
+     https://base_url.com/api/unfollow/ \
+     -H 'accept: application/json' \
+     -H 'authorization: Token token=treehsgstsdde3573' \
+     -H 'cache-control: no-cache' \
+     -H 'content-type: application/json' \
+```
+
+> The above command returns JSON structured like this:
+
+```json
+   {
+     "message": "User Unfollow successfully."
+    }
+  
+```
+###HTTP Request
+
+`DELETE https://base_url.com/api/unfollow/:id`
+
+### Query Parameters
+
+    Parameter | Type | Required | Description| Default
+    --------- | ------- | ------- | ----------- | -----------
+             |          |         |              |
+             |          |         |               |
+<aside class="warning"> 404 Not Found.</aside>
+

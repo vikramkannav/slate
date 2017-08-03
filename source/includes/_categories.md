@@ -4,10 +4,15 @@
 ##Categories
 
 This API is used for the list of categories. 
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shells
-curl "http://base_url/api/categories" 
--H "Authentication:Bearer access token"
+  curl -X GET \
+  http://base_url.com/api/categories \
+ -H 'accept: application/json' \
+ -H 'authorization: Token token=treehsgstsdde3573' \
+ -H 'cache-control: no-cache' \
+ -H 'content-type: application/json' \
 ```
 
 > The above command returns JSON structured like this:
@@ -37,4 +42,4 @@ curl "http://base_url/api/categories"
               |         |         |             |
               |         |         |             |
         
- <aside class="warning"> 404 Not Found.</aside>
+ <aside class="warning"> 422 Unprocessable Entity.</aside>

@@ -3,10 +3,15 @@
 ## Posts
 
 This API is used for the list of post.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
-curl "http://base_url/api/posts" 
--H "Authentication:Bearer access token"
+ curl -X GET \
+   https://base_url.com/api/posts \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 
 > The above command returns JSON structured like this:
@@ -47,16 +52,25 @@ curl "http://base_url/api/posts"
               |         |         |             |
               |        |          |             |
 
-<aside class="warning"> 404 Not Found.</aside>
+<aside class="warning"> 422 Unprocessable Entity.</aside>
 
 
 ## Create Post
 
 This API is used for the Post creation.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
-curl "http://base_url/api/posts" 
--H " authentication : bearer access token"
+curl -X POST \
+   https://base_url.com/api/posts \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+   -d '{
+	 "description": "post_description"
+}'
+
 ```
 
 > The above command returns JSON structured like this:
@@ -80,7 +94,7 @@ curl "http://base_url/api/posts"
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    description | string | true   | Please enter you post description| 
+    description | string | true   | description of the post| 
 
  <aside class="warning"> 422 Unprocessable entry.</aside>
 
@@ -88,10 +102,20 @@ curl "http://base_url/api/posts"
 ## Update Post
 
 This API is used for Post update.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
-```shell
-curl "http://base_url/api/posts/:id" 
--H "Authentication:Bearer access token"
+```shell 
+ curl -X PUT \
+   https://base_url.com/api/posts/ \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
+ -d '{
+	"description": "post_description"
+}'
+
+
 ```
 
 > The above command returns JSON structured like this:
@@ -116,18 +140,23 @@ curl "http://base_url/api/posts/:id"
 
      Parameter | Type | Required | Description| Default
      --------- | ------- | ------- | ----------- | -----------
-     description | string | true  | Please update your post| 
+     description | string | true  | description of the post| 
 
- <aside class="warning"> 422 Unprocessable entry.</aside>
+ <aside class="warning"> 404 Not Found</aside>
 
 
 ## Delete Post
 
 This API is used for the Post delete.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
-curl "http://base_url/api/artist/delete/:id" 
--H "Authentication:Bearer access token"
+ curl -X DELETE \
+   https://base_url.com/api/posts/ \
+  -H 'accept: application/json' \
+  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'cache-control: no-cache' \
+  -H 'content-type: application/json' \
 ```
 
 > The above command returns JSON structured like this:
@@ -149,4 +178,4 @@ curl "http://base_url/api/artist/delete/:id"
              |          |        |              |
   
 
- <aside class="warning"> 422 Unprocessable entry.</aside>
+ <aside class="warning"> 404 Not Found</aside>
