@@ -4,7 +4,7 @@
 ##Categories
 
 This API is used for the list of categories. 
-This API is an authentication API request in which needs to pass auth token in the request header.
+This is open API where Auth token is not required to be passed in header.
 
 ```shells
   curl -X GET \
@@ -42,4 +42,4 @@ This API is an authentication API request in which needs to pass auth token in t
               |         |         |             |
               |         |         |             |
         
- <aside class="warning"> 422 Unprocessable Entity.</aside>
+ 

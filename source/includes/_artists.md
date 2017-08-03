@@ -44,7 +44,8 @@ This API is an authentication API request in which needs to pass auth token in t
               |         |         |            |
              |         |         |            |
    
-<aside class="warning"> 422 Unprocessable Entity.</aside>
+<aside class="warning">401 Unauthorized </aside>
+
 ## Update User
 
 ```shell
@@ -108,7 +109,7 @@ curl -X PUT \
     play_instrument | boolean | true | play_instrument user |
     instrument_type | string  | true | instrument_type type of the user|
 
-<aside class="warning"> 404 Not Found.</aside>
+<aside class="warning"> 422 Unprocessable. </aside>
 
 
     
@@ -151,7 +152,7 @@ curl -X PUT \
              |          |         |            |
              |          |         |            |
         
-<aside class="warning"> 422 Unprocessable Entity. </aside>
+<aside class="warning"> 401 Unauthorized </aside>
 
 
 ## Following
@@ -193,7 +194,7 @@ curl -X PUT \
                  |          |         |            |
                  |          |         |            |
             
-<aside class="warning"> 422 Unprocessable Entity. </aside>
+<aside class="warning">401 Unauthorized </aside>
 
 
 
@@ -260,5 +261,4 @@ curl -X POST \
     --------- | ------- | ------- | ----------- | -----------
              |          |         |              |
              |          |         |               |
-<aside class="warning"> 404 Not Found.</aside>
 

@@ -39,7 +39,7 @@ curl -X POST \
     country_code | integer |true | country_code      | +1
     
     
-<aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
+<aside class="warning">422 Unprocessable entry. Please enter the correct mobile number </aside>
 
 
 ## Verify OTP
@@ -96,8 +96,7 @@ curl -X POST \
     otp_number | integer |true   | otp_number recived on the number     | 
     country_code | integer |true | country_code of the user country   | +91
      
- 
-<aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
+<aside class="warning">422 Unprocessable entry </aside>
 
 ## Refresh Token
 

@@ -52,7 +52,7 @@ This API is an authentication API request in which needs to pass auth token in t
               |         |         |             |
               |        |          |             |
 
-<aside class="warning"> 422 Unprocessable Entity.</aside>
+<aside class="warning"> 401 Unauthorized.</aside>
 
 
 ## Create Post
@@ -142,7 +142,7 @@ This API is an authentication API request in which needs to pass auth token in t
      --------- | ------- | ------- | ----------- | -----------
      description | string | true  | description of the post| 
 
- <aside class="warning"> 404 Not Found</aside>
+ <aside class="warning"> 422 Unprocessable entry.6t</aside>
 
 
 ## Delete Post
@@ -178,4 +178,3 @@ This API is an authentication API request in which needs to pass auth token in t
              |          |        |              |
   
 
- <aside class="warning"> 404 Not Found</aside>
