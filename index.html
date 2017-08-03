@@ -283,9 +283,6 @@
                   </li>
               </ul>
           </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
-          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
@@ -359,7 +356,7 @@ This is open API where Auth token is not required to be passed in header.</p>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
+<aside class="warning">422 Unprocessable entry. Please enter the correct mobile number </aside>
 <h2 id='verify-otp'>Verify OTP</h2>
 <p>This API is used for the mobile number verification with OTP number.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -429,7 +426,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
+<aside class="warning">422 Unprocessable entry </aside>
 <h2 id='refresh-token'>Refresh Token</h2>
 <p>This API is used for the regenerating the auth token via refresh token.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -488,7 +485,7 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="warning"> 422 Unprocessable entry. </aside>
 <h1 id='categories'>Categories</h1><h2 id='categories-2'>Categories</h2>
 <p>This API is used for the list of categories. 
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+This is open API where Auth token is not required to be passed in header.</p>
 <pre class="highlight plaintext"><code>  curl -X GET \
   http://base_url.com/api/categories \
  -H 'accept: application/json' \
@@ -537,8 +534,6 @@ This API is an authentication API request in which needs to pass auth token in t
 <td></td>
 </tr>
 </tbody></table>
-
-<p><aside class="warning"> 422 Unprocessable Entity.</aside></p>
 <h1 id='users'>Users</h1><h2 id='users-2'>Users</h2>
 <p>This API is used for the user list.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -593,7 +588,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422 Unprocessable Entity.</aside>
+<aside class="warning">401 Unauthorized </aside>
 <h2 id='update-user'>Update User</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
   http://base_url/api/users/id: <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -716,7 +711,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="warning"> 404 Not Found.</aside>
+<aside class="warning"> 422 Unprocessable. </aside>
 <h2 id='followers'>Followers</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
    https://base_url.com/api/followers <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -768,7 +763,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422 Unprocessable Entity. </aside>
+<aside class="warning"> 401 Unauthorized </aside>
 <h2 id='following'>Following</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
    https://base_url.com/api/following <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -820,7 +815,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422 Unprocessable Entity. </aside>
+<aside class="warning">401 Unauthorized </aside>
 <h2 id='follow'>Follow</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   https://base_url.com/api/followers <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -905,8 +900,6 @@ This API is an authentication API request in which needs to pass auth token in t
 <td></td>
 </tr>
 </tbody></table>
-
-<aside class="warning"> 404 Not Found.</aside>
 <h1 id='post'>Post</h1><h2 id='posts'>Posts</h2>
 <p>This API is used for the list of post.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -970,7 +963,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422 Unprocessable Entity.</aside>
+<aside class="warning"> 401 Unauthorized.</aside>
 <h2 id='create-post'>Create Post</h2>
 <p>This API is used for the Post creation.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -1064,7 +1057,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<p><aside class="warning"> 404 Not Found</aside></p>
+<p><aside class="warning"> 422 Unprocessable entry.6t</aside></p>
 <h2 id='delete-post'>Delete Post</h2>
 <p>This API is used for the Post delete.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -1101,9 +1094,8 @@ This API is an authentication API request in which needs to pass auth token in t
 <td></td>
 </tr>
 </tbody></table>
+<p># Errors</p>
 
-<p><aside class="warning"> 404 Not Found</aside></p>
-<h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
 <p>The Kittn API uses the following error codes:</p>
