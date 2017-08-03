@@ -31,7 +31,7 @@ curl -X POST \
 
 `POST https://base_url.com/api/auth`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -88,7 +88,7 @@ curl -X POST \
 
 `POST http://base_url.com/api/verify`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -144,7 +144,7 @@ curl -X POST \
 
 `POST http://base_url.com/api/refresh_token`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------

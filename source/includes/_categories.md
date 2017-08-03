@@ -35,7 +35,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 `GET http://base_url.com/api/categories`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------

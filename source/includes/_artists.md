@@ -37,7 +37,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 `GET https://base_url.com/api/users`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -93,7 +93,7 @@ curl -X PUT \
 
 `PUT https://base_url.com/api/users/id:`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -144,7 +144,7 @@ curl -X PUT \
 
 `GET https://base_url.com/api/followers`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -186,7 +186,7 @@ curl -X PUT \
 
 `GET https://base_url.com/api/followings`
 
-### Query Parameters
+### Parameters
 
      Parameter | Type | Required | Description| Default
         --------- | ------- | ------- | ----------- | -----------
@@ -220,7 +220,7 @@ curl -X POST \
 
 `POST https://base_url.com/api/follow/:id`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -254,7 +254,7 @@ curl -X POST \
 
 `DELETE https://base_url.com/api/unfollow/:id`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------

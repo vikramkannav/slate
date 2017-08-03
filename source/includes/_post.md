@@ -45,7 +45,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 `GET https://base_url.com/api/posts`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -90,7 +90,7 @@ curl -X POST \
 
 `POST https://base_url.com/api/posts`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
@@ -136,7 +136,7 @@ This API is an authentication API request in which needs to pass auth token in t
 `PUT https://base_url.com/api/posts/:id`
 
 
-### Query Parameters
+### Parameters
 
      Parameter | Type | Required | Description| Default
      --------- | ------- | ------- | ----------- | -----------
@@ -171,7 +171,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 `DELETE https://base_url.com/api/posts/:id`
 
-### Query Parameters
+### Parameters
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
