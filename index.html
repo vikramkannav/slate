@@ -256,10 +256,13 @@
                     <a href="#followers" class="toc-h2 toc-link" data-title="Users">Followers</a>
                   </li>
                   <li>
-                    <a href="#followings" class="toc-h2 toc-link" data-title="Users">Followings</a>
+                    <a href="#following" class="toc-h2 toc-link" data-title="Users">Following</a>
                   </li>
                   <li>
-                    <a href="#follow-unfollow" class="toc-h2 toc-link" data-title="Users">Follow/Unfollow</a>
+                    <a href="#follow" class="toc-h2 toc-link" data-title="Users">Follow</a>
+                  </li>
+                  <li>
+                    <a href="#unfollow" class="toc-h2 toc-link" data-title="Users">Unfollow</a>
                   </li>
               </ul>
           </li>
@@ -309,18 +312,26 @@ basic details,music files etc.</p></li>
 /preferences.</p></li>
 </ol>
 <h1 id='authentication'>Authentication</h1><h2 id='otp-generation'>OTP generation</h2>
-<p>This API is used for the OTP generation.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/auth"</span> 
-</code></pre>
+<p>This API is used for the OTP generation.
+This is open API where Auth token is not required to be passed in header.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://base_url.com/api/auth <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "mobile_number": "9876543210",
+    "country_code": "+1"
+}'</span>
+<span class="s2">" 
+</span></code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP is sent successfully"</span><span class="w">
    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>auth API is using for the mobile number Authentication</p>
-<h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://base_url.com/api/auth</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -344,15 +355,25 @@ basic details,music files etc.</p></li>
 <td>integer</td>
 <td>true</td>
 <td>country_code</td>
-<td>+91</td>
+<td>+1</td>
 </tr>
 </tbody></table>
 
 <aside class="warning"> 422 Unprocessable entry. Please enter the correct mobile number </aside>
 <h2 id='verify-otp'>Verify OTP</h2>
-<p>This API is used for the mobile number verification with OTP number.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/verify"</span>
--H <span class="s2">"Authentication:Bearer access token"</span>
+<p>This API is used for the mobile number verification with OTP number.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+   http://base_url.com/api/verify <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "mobile_number": "9876543210",
+     "otp_number" :"2345"
+    "country_code": "+1"
+}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -389,30 +410,39 @@ basic details,music files etc.</p></li>
 <td>mobile_number</td>
 <td>integer</td>
 <td>true</td>
-<td>mobile_number</td>
+<td>mobile_number of the user</td>
 <td></td>
 </tr>
 <tr>
 <td>otp_number</td>
 <td>integer</td>
 <td>true</td>
-<td>otp_number</td>
+<td>otp_number recived on the number</td>
 <td></td>
 </tr>
 <tr>
 <td>country_code</td>
 <td>integer</td>
 <td>true</td>
-<td>country_code</td>
+<td>country_code of the user country</td>
 <td>+91</td>
 </tr>
 </tbody></table>
 
 <aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
 <h2 id='refresh-token'>Refresh Token</h2>
-<p>This API is used for the regenerating the auth token via refresh token.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/refresh_token"</span>
--H <span class="s2">"Authentication:Bearer access token"</span>
+<p>This API is used for the regenerating the auth token via refresh token.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  http://base_url/api/refresh_token <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'postman-token: 61fe122e-6edc-982a-8d55-6ffa9fad4421'</span> <span class="se">\</span>
+  -d <span class="s1">'{
+    "refresh_token": "wjhdduyd6378399"
+}'</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -450,16 +480,21 @@ basic details,music files etc.</p></li>
 <td>refresh_token</td>
 <td>string</td>
 <td>true</td>
-<td>refresh_token</td>
+<td>refresh_token of the user</td>
 <td></td>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 401 Unauthorized entry. Please enter the Correct OTP </aside>
+<aside class="warning"> 422 Unprocessable entry. </aside>
 <h1 id='categories'>Categories</h1><h2 id='categories-2'>Categories</h2>
-<p>This API is used for the list of categories. </p>
-<pre class="highlight plaintext"><code>curl "http://base_url/api/categories" 
--H "Authentication:Bearer access token"
+<p>This API is used for the list of categories. 
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight plaintext"><code>  curl -X GET \
+  http://base_url.com/api/categories \
+ -H 'accept: application/json' \
+ -H 'authorization: Token token=treehsgstsdde3573' \
+ -H 'cache-control: no-cache' \
+ -H 'content-type: application/json' \
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -503,11 +538,16 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<p><aside class="warning"> 404 Not Found.</aside></p>
+<p><aside class="warning"> 422 Unprocessable Entity.</aside></p>
 <h1 id='users'>Users</h1><h2 id='users-2'>Users</h2>
-<p>This API is used for the user list.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_list"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<p>This API is used for the user list.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>  curl -X GET <span class="se">\</span>
+    https://base_url.com/api/users <span class="se">\</span>
+    -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+    -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+    -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -553,10 +593,28 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 404 Not Found.</aside>
-<h2 id='update-user'>Update User</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/users/id:"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
-</code></pre>
+<aside class="warning"> 422 Unprocessable Entity.</aside>
+<h2 id='update-user'>Update User</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+  http://base_url/api/users/id: <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+  -d <span class="s1">'  {
+    "user": {
+        "first_name": "vikram",
+        "last_name": "sharma",
+        "email_id": "vikramkannav@gmail.com",
+        "category": "artist",
+        "age": 30,
+        "profession": "vikram@gmail.com",
+        "work_on_album": "no",
+        "file_type": "song.mp3",
+        "play_instrument ": "yes",
+        "instrument_name": "gitar"
+    }
+  }
+</span></code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
@@ -590,77 +648,81 @@ basic details,music files etc.</p></li>
 <td>first_name</td>
 <td>string</td>
 <td>true</td>
-<td>Please enter First Name</td>
+<td>first_name of the user</td>
 <td></td>
 </tr>
 <tr>
 <td>last_name</td>
 <td>string</td>
 <td>true</td>
-<td>Please enter Last Name</td>
+<td>last_name of the user</td>
 <td></td>
 </tr>
 <tr>
 <td>email_id</td>
 <td>string</td>
 <td>true</td>
-<td>Please enter the email</td>
+<td>email_id of the user the user</td>
 <td></td>
 </tr>
 <tr>
 <td>category</td>
 <td>string</td>
 <td>true</td>
-<td>Please select Catgeory</td>
+<td>category</td>
 <td>Artist</td>
 </tr>
 <tr>
 <td>age</td>
 <td>number</td>
 <td>true</td>
-<td>Please enter you age</td>
+<td>age of the user</td>
 <td></td>
 </tr>
 <tr>
 <td>profession</td>
 <td>string</td>
 <td>true</td>
-<td>Please enter you email</td>
+<td>profession of the user</td>
 <td></td>
 </tr>
 <tr>
 <td>work_on_album</td>
 <td>boolean</td>
 <td>true</td>
-<td>Please enter work on album</td>
+<td>work_on_album of the user</td>
 <td></td>
 </tr>
 <tr>
 <td>file_type</td>
 <td>string</td>
 <td>true</td>
-<td>Please upload video or audio</td>
+<td>file_type</td>
 <td></td>
 </tr>
 <tr>
 <td>play_instrument</td>
 <td>boolean</td>
 <td>true</td>
-<td>Play instrument Yes or No</td>
+<td>play_instrument user</td>
 <td></td>
 </tr>
 <tr>
 <td>instrument_type</td>
 <td>string</td>
 <td>true</td>
-<td>Please enter the instrument name</td>
+<td>instrument_type type of the user</td>
 <td></td>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 422 Unprocessable entry.</aside>
-<h2 id='followers'>Followers</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist_follow"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<aside class="warning"> 404 Not Found.</aside>
+<h2 id='followers'>Followers</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
+   https://base_url.com/api/followers <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -706,9 +768,13 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 404 Not Found </aside>
-<h2 id='followings'>Followings</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/followings"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<aside class="warning"> 422 Unprocessable Entity. </aside>
+<h2 id='following'>Following</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
+   https://base_url.com/api/following <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -754,21 +820,23 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 404 Not Found </aside>
-<h2 id='follow-unfollow'>Follow/Unfollow</h2><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/follow"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<aside class="warning"> 422 Unprocessable Entity. </aside>
+<h2 id='follow'>Follow</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+  https://base_url.com/api/followers <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"following_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User follow successfully."</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">}</span><span class="w">
+
 </span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
-<p><code>POST https://base_url.com/api/follow</code></p>
+<p><code>POST https://base_url.com/api/follow/:id</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -795,11 +863,59 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 401 Unauthorized entry.</aside>
+<aside class="warning">422 Unprocessable entry.</aside>
+<h2 id='unfollow'>Unfollow</h2><pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
+     https://base_url.com/api/unfollow/ <span class="se">\</span>
+     -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+     -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+     -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
+     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User Unfollow successfully."</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>DELETE https://base_url.com/api/unfollow/:id</code></p>
+<h3 id='query-parameters-6'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Required</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead><tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+
+<aside class="warning"> 404 Not Found.</aside>
 <h1 id='post'>Post</h1><h2 id='posts'>Posts</h2>
-<p>This API is used for the list of post.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<p>This API is used for the list of post.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code> curl -X GET <span class="se">\</span>
+   https://base_url.com/api/posts <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -854,11 +970,20 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<aside class="warning"> 404 Not Found.</aside>
+<aside class="warning"> 422 Unprocessable Entity.</aside>
 <h2 id='create-post'>Create Post</h2>
-<p>This API is used for the Post creation.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts"</span> 
--H <span class="s2">" authentication : bearer access token"</span>
+<p>This API is used for the Post creation.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+   https://base_url.com/api/posts <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+   -d <span class="s1">'{
+     "description": "post_description"
+}'</span>
+
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -887,16 +1012,26 @@ basic details,music files etc.</p></li>
 <td>description</td>
 <td>string</td>
 <td>true</td>
-<td>Please enter you post description</td>
+<td>description of the post</td>
 <td></td>
 </tr>
 </tbody></table>
 
 <p><aside class="warning"> 422 Unprocessable entry.</aside></p>
 <h2 id='update-post'>Update Post</h2>
-<p>This API is used for Post update.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/posts/:id"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<p>This API is used for Post update.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code> curl -X PUT <span class="se">\</span>
+   https://base_url.com/api/posts/ <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+ -d <span class="s1">'{
+    "description": "post_description"
+}'</span>
+
+
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -924,16 +1059,21 @@ basic details,music files etc.</p></li>
 <td>description</td>
 <td>string</td>
 <td>true</td>
-<td>Please update your post</td>
+<td>description of the post</td>
 <td></td>
 </tr>
 </tbody></table>
 
-<p><aside class="warning"> 422 Unprocessable entry.</aside></p>
+<p><aside class="warning"> 404 Not Found</aside></p>
 <h2 id='delete-post'>Delete Post</h2>
-<p>This API is used for the Post delete.</p>
-<pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://base_url/api/artist/delete/:id"</span> 
--H <span class="s2">"Authentication:Bearer access token"</span>
+<p>This API is used for the Post delete.
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
+   https://base_url.com/api/posts/ <span class="se">\</span>
+  -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
+  -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -962,7 +1102,7 @@ basic details,music files etc.</p></li>
 </tr>
 </tbody></table>
 
-<p><aside class="warning"> 422 Unprocessable entry.</aside></p>
+<p><aside class="warning"> 404 Not Found</aside></p>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
