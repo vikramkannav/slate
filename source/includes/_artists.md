@@ -8,7 +8,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell
   curl -X GET \
-    https://base_url.com/api/users \
+    http://base_url.com/api/users \
     -H 'accept: application/json' \
     -H 'authorization: Token token=treehsgstsdde3573' \
     -H 'cache-control: no-cache' \
@@ -21,21 +21,20 @@ This API is an authentication API request in which needs to pass auth token in t
   {
     	"users": [{
     			"id": 1,
-    			"name": "vikram",
-    			"image": "artist_image"
+    			"name": "vikram"
     		},
     		{
     			"id": 2,
-    			"name": "vikram",
-    			"image": "artist_image"
-    		}
+    			"name": "sumit"
+    	    }
     	]
     }
 ```
+>The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
-`GET https://base_url.com/api/users`
+`GET http://base_url.com/api/users`
 
 ### Parameters
 
@@ -43,14 +42,15 @@ This API is an authentication API request in which needs to pass auth token in t
     --------- | ------- | ------- | ----------- | -----------
               |         |         |            |
              |         |         |            |
-   
+
+<aside class="success">Ok</aside>
 <aside class="warning">401 Unauthorized </aside>
 
 ## Update User
 
 ```shell
 curl -X PUT \
-  http://base_url/api/users/id: \
+  http://base_url/api/users \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -89,10 +89,11 @@ curl -X PUT \
   	}
   }
 ```
+>The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
-`PUT https://base_url.com/api/users/id:`
+`PUT http://base_url.com/api/users`
 
 ### Parameters
 
@@ -109,6 +110,7 @@ curl -X PUT \
     play_instrument | boolean | true | play_instrument user |
     instrument_type | string  | true | instrument_type type of the user|
 
+<aside class="success">Ok</aside>
 <aside class="warning"> 422 Unprocessable. </aside>
 
 
@@ -117,7 +119,7 @@ curl -X PUT \
 
 ```shell
    curl -X GET \
-   https://base_url.com/api/followers \
+   http://base_url.com/api/followers \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -130,20 +132,20 @@ curl -X PUT \
   {
   	"users": [{
   			"id": 1,
-  			"name": "vikram",
-  			"image": "artist_image"
+  			"name": "vikram"
   		},
   		{
   			"id": 2,
-  			"name": "vikram",
-  			"image": "artist_image"
+  			"name": "vikram"  		
   		}
   	]
   }
 ```
+>The above command returns JSON structured like this for failure:
+
 ###HTTP Request
 
-`GET https://base_url.com/api/followers`
+`GET http://base_url.com/api/followers`
 
 ### Parameters
 
@@ -152,6 +154,7 @@ curl -X PUT \
              |          |         |            |
              |          |         |            |
         
+<aside class="success">Ok</aside>
 <aside class="warning"> 401 Unauthorized </aside>
 
 
@@ -159,7 +162,7 @@ curl -X PUT \
 
 ```shell
    curl -X GET \
-   https://base_url.com/api/following \
+   http://base_url.com/api/following \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -172,20 +175,20 @@ curl -X PUT \
    {
    	"users": [{
    			"id": 3,
-   			"name": "sumit",
-   			"image": "artist_image"
+   			"name": "sumit"
    		},
    		{
    			"id": 6,
-   			"name": "ram",
-   			"image": "artist_image"
+   			"name": "ram"
    		}
    	]
    }
 ```
+>The above command returns JSON structured like this for failure:
+
 ###HTTP Request
 
-`GET https://base_url.com/api/followings`
+`GET http://base_url.com/api/following`
 
 ### Parameters
 
@@ -194,6 +197,7 @@ curl -X PUT \
                  |          |         |            |
                  |          |         |            |
             
+<aside class="success">Ok</aside>
 <aside class="warning">401 Unauthorized </aside>
 
 
@@ -202,7 +206,7 @@ curl -X PUT \
 
 ```shell
 curl -X POST \
-  https://base_url.com/api/followers \
+  http://base_url.com/api/users/:id/follow \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -215,11 +219,12 @@ curl -X POST \
    {
      "message": "User follow successfully."
     }
-  
 ```
+>The above command returns JSON structured like this for failure:
+
 ###HTTP Request
 
-`POST https://base_url.com/api/follow/:id`
+`POST http://base_url.com/api/users/:id/follow`
 
 ### Parameters
 
@@ -228,7 +233,7 @@ curl -X POST \
              |          |         |              |
              |          |         |               |
              
-             
+<aside class="success">Ok</aside>
 <aside class="warning">422 Unprocessable entry.</aside>
 
 
@@ -236,7 +241,7 @@ curl -X POST \
 
 ```shell
  curl -X DELETE \
-     https://base_url.com/api/unfollow/ \
+     http://base_url.com/api/unfollow/ \
      -H 'accept: application/json' \
      -H 'authorization: Token token=treehsgstsdde3573' \
      -H 'cache-control: no-cache' \
@@ -249,11 +254,12 @@ curl -X POST \
    {
      "message": "User Unfollow successfully."
     }
-  
 ```
+>The above command returns JSON structured like this for failure:
+
 ###HTTP Request
 
-`DELETE https://base_url.com/api/unfollow/:id`
+`DELETE http://base_url.com/api/users/:id/unfollow`
 
 ### Parameters
 

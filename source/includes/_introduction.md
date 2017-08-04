@@ -2,7 +2,7 @@
 #Introduction
 Welcome to the documentation for the Kannects API!
 
-Kannects app is micro vloging platform for artist/musician/singers.
+Kannects app is micro blogging platform for artist/musician/singers.
 This documents defined behaviour of Kannects application.
 
 1. An Artist can get into the system by provide his/her mobile 

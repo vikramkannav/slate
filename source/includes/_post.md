@@ -7,7 +7,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell
  curl -X GET \
-   https://base_url.com/api/posts \
+   http//base_url.com/api/posts \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -23,8 +23,7 @@ This API is an authentication API request in which needs to pass auth token in t
 			"description": "post_description",
 			"user": {
 				"id": 1,
-				"name": "vikram",
-				"image": "artist_image"
+				"name": "vikram"				
 			}
 		},
 		{
@@ -32,18 +31,17 @@ This API is an authentication API request in which needs to pass auth token in t
 			"description": "post_description",
 			"user": {
 				"id": 2,
-				"name": "vikram",
-				"image": "artist_image"
+				"name": "vikram"				
 			}
 		}
-	],
-	"message": "Post created successfully"
+	]	
 }
  ```
+>The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
-`GET https://base_url.com/api/posts`
+`GET http://base_url.com/api/posts`
 
 ### Parameters
 
@@ -52,6 +50,7 @@ This API is an authentication API request in which needs to pass auth token in t
               |         |         |             |
               |        |          |             |
 
+<aside class="success">Ok</aside>
 <aside class="warning"> 401 Unauthorized.</aside>
 
 
@@ -62,7 +61,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell
 curl -X POST \
-   https://base_url.com/api/posts \
+   http://base_url.com/api/posts \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -85,10 +84,11 @@ curl -X POST \
  }
    
    ```
+>The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
-`POST https://base_url.com/api/posts`
+`POST http://base_url.com/api/posts`
 
 ### Parameters
 
@@ -96,7 +96,9 @@ curl -X POST \
     --------- | ------- | ------- | ----------- | -----------
     description | string | true   | description of the post| 
 
- <aside class="warning"> 422 Unprocessable entry.</aside>
+
+<aside class="success">Ok</aside>
+<aside class="warning"> 422 Unprocessable entry.</aside>
 
 
 ## Update Post
@@ -106,7 +108,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell 
  curl -X PUT \
-   https://base_url.com/api/posts/ \
+   http://base_url.com/api/posts/ \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -129,11 +131,11 @@ This API is an authentication API request in which needs to pass auth token in t
    	 	"message": "Post Updated successfully"
    }
 ```
-
+>The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
-`PUT https://base_url.com/api/posts/:id`
+`PUT http://base_url.com/api/posts/:id`
 
 
 ### Parameters
@@ -142,7 +144,8 @@ This API is an authentication API request in which needs to pass auth token in t
      --------- | ------- | ------- | ----------- | -----------
      description | string | true  | description of the post| 
 
- <aside class="warning"> 422 Unprocessable entry.6t</aside>
+<aside class="success">Ok</aside>
+<aside class="warning"> 422 Unprocessable entry.6t</aside>
 
 
 ## Delete Post
@@ -152,7 +155,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell
  curl -X DELETE \
-   https://base_url.com/api/posts/ \
+   http://base_url.com/api/posts/ \
   -H 'accept: application/json' \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
@@ -166,10 +169,12 @@ This API is an authentication API request in which needs to pass auth token in t
    	"message": "Post deleted successfully"
    }
 ```
+>The above command returns JSON structured like this for failure:
+
 
 ###HTTP Request
 
-`DELETE https://base_url.com/api/posts/:id`
+`DELETE http://base_url.com/api/posts/:id`
 
 ### Parameters
 

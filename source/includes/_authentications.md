@@ -7,7 +7,7 @@ This is open API where Auth token is not required to be passed in header.
 
 ```shell
 curl -X POST \
-  https://base_url.com/api/auth \
+  http://base_url.com/api/auth \
   -H 'accept: application/json' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
@@ -25,11 +25,20 @@ curl -X POST \
   "message": "OTP is sent successfully"
    }
 ```
+>The above command returns JSON structured like this for failure:
+
+```json
+  {
+    "error": {
+       "message": "Please enter the valid email mobile number"
+    }
+  }
+```
 
 
 ###HTTP Request
 
-`POST https://base_url.com/api/auth`
+`POST http://base_url.com/api/auth`
 
 ### Parameters
 
@@ -38,8 +47,8 @@ curl -X POST \
     mobile_number | integer |true | mobile_number | 
     country_code | integer |true | country_code      | +1
     
-    
-<aside class="warning">422 Unprocessable entry. Please enter the correct mobile number </aside>
+<aside class="success">status:200 OK</aside>
+<aside class="warning">status:422 Unprocessable entry.</aside>
 
 
 ## Verify OTP
@@ -52,7 +61,6 @@ This API is an authentication API request in which needs to pass auth token in t
 curl -X POST \
    http://base_url.com/api/verify \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '{
@@ -84,6 +92,9 @@ curl -X POST \
 ```
 
 
+
+
+
 ###HTTP Request
 
 `POST http://base_url.com/api/verify`
@@ -96,6 +107,7 @@ curl -X POST \
     otp_number | integer |true   | otp_number recived on the number     | 
     country_code | integer |true | country_code of the user country   | +91
      
+<aside class="success">Ok</aside>
 <aside class="warning">422 Unprocessable entry </aside>
 
 ## Retrieve access Token
@@ -150,6 +162,6 @@ curl -X POST \
     refresh_token | string |true | refresh_token of the user| 
     
      
- 
+<aside class="success">Ok</aside>
 <aside class="warning"> 422 Unprocessable entry. </aside>
 

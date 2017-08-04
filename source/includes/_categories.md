@@ -31,6 +31,8 @@ This is open API where Auth token is not required to be passed in header.
   }
 ```
 
+>The above command returns JSON structured like this for failure if ssn is invalid:
+
 ###HTTP Request
 
 `GET http://base_url.com/api/categories`
