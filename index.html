@@ -298,22 +298,21 @@
         <h1 id='introduction'>Introduction</h1>
 <p>Welcome to the documentation for the Kannects API!</p>
 
-<p>Kannects app is micro blogging platform for artist/musician/singers.
-This documents defined behaviour of Kannects application.</p>
+<p>Kannects app is micro blogging platform for artist/musician/singers. This documents defined the behavior of Kannects application.</p>
 
-<ol>
-<li><p>An Artist can get into the system by provide his/her mobile 
-number with an requested OTP provider by API.</p></li>
-<li><p>An Artist can update his profile with varity of option like
-basic details,music files etc.</p></li>
-<li><p>An Artist can follow other artist.</p></li>
-<li><p>An Artist can visit other artist profiles.</p></li>
-<li><p>An Artist will received a customize feed items based on his profile
-/preferences.</p></li>
-</ol>
+<p>An Artist can get into the system by providing his/her mobile number with requested OTP provided by API.</p>
+
+<p>An Artist can update his profile with the verity of option like basic details, music files etc.</p>
+
+<p>An Artist can follow other artist.</p>
+
+<p>An Artist can visit other artist profiles.</p>
+
+<p>An Artist will received a customize feed items based on his profile /preferences.</p>
 <h1 id='authentication'>Authentication</h1><h2 id='otp-generation'>OTP generation</h2>
-<p>This API is used for the OTP generation.
-This is open API where Auth token is not required to be passed in header.</p>
+<p>This API is used for the OTP generation. </p>
+
+<p>This is open API where Auth token is not required to be passed in the header.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   http://base_url.com/api/auth <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -372,8 +371,9 @@ This is open API where Auth token is not required to be passed in header.</p>
 
 <aside class="warning">status:422 Unprocessable entry.</aside>
 <h2 id='verify-otp'>Verify OTP</h2>
-<p>This API is used for the mobile number verification with OTP number.
-This is open API where Auth token is not required to be passed in header.</p>
+<p>This API is used for the mobile number verification with OTP number. </p>
+
+<p>This is open API where Auth token is not required to be passed in the header.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
    http://base_url.com/api/verify <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -518,8 +518,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 <aside class="warning">status: 422 Unprocessable entry. </aside>
 <h1 id='categories'>Categories</h1><h2 id='categories-2'>Categories</h2>
-<p>This API is used for the list of categories. 
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<p>This API is used for the list of categories. </p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight plaintext"><code>  curl -X GET \
   http://base_url.com/api/categories \
  -H 'accept: application/json' \
@@ -572,8 +573,9 @@ This API is an authentication API request in which needs to pass auth token in t
 <p><aside class="success">status:200 OK</aside>
  <aside class="warning">status:401 Unauthorized  </aside></p>
 <h1 id='users'>Users</h1><h2 id='users-2'>Users</h2>
-<p>This API is used for the user list.
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<p>This API is used for the user list. </p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code>  curl -X GET <span class="se">\</span>
     http://base_url.com/api/users <span class="se">\</span>
     -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -626,7 +628,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="success">status:200 OK</aside>
 
 <aside class="warning">status:401 Unauthorized </aside>
-<h2 id='update-user'>Update User</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
+<h2 id='update-user'>Update User</h2>
+<p>This API is used for the user update. </p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
   http://base_url/api/users <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
@@ -760,7 +766,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="success">status:200 OK</aside>
 
 <aside class="warning">status:422 Unprocessable. </aside>
-<h2 id='followers'>Followers</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
+<h2 id='followers'>Followers</h2>
+<p>This API is used for the show followers</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
    http://base_url.com/api/followers <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
@@ -812,7 +822,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="success">status:200 OK</aside>
 
 <aside class="warning"> 401 Unauthorized </aside>
-<h2 id='following'>Following</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
+<h2 id='following'>Following</h2>
+<p>This API is used for the show followering.</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
    http://base_url.com/api/following <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
@@ -864,7 +878,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="success">status:200 OK</aside>
 
 <aside class="warning">401 Unauthorized </aside>
-<h2 id='follow'>Follow</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+<h2 id='follow'>Follow</h2>
+<p>This API is used for the follow.</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   http://base_url.com/api/users/:id/follow <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
   -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
@@ -908,7 +926,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="success">status:200 OK</aside>
 
 <aside class="warning">422 Unprocessable entry.</aside>
-<h2 id='unfollow'>Unfollow</h2><pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
+<h2 id='unfollow'>Unfollow</h2>
+<p>This API is used for the unfollow.</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
      http://base_url.com/api/unfollow/ <span class="se">\</span>
      -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
      -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
@@ -953,8 +975,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 <aside class="warning"> 401 Unauthorized </aside>
 <h1 id='post'>Post</h1><h2 id='posts'>Posts</h2>
-<p>This API is used for the list of post.
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<p>This API is used for the list of post. </p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code> curl -X GET <span class="se">\</span>
    http//base_url.com/api/posts <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -1020,8 +1043,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 <aside class="warning"> 401 Unauthorized.</aside>
 <h2 id='create-post'>Create Post</h2>
-<p>This API is used for the Post creation.
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<p>This API is used for the Post creation.</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
    http://base_url.com/api/post <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -1076,8 +1100,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
 <h2 id='update-post'>Update Post</h2>
-<p>This API is used for Post update.
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<p>This API is used for Post update.</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code> curl -X PUT <span class="se">\</span>
    http://base_url.com/api/posts/ <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -1132,8 +1157,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 <aside class="warning"> 422 Unprocessable entry.6t</aside>
 <h2 id='delete-post'>Delete Post</h2>
-<p>This API is used for the Post delete.
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+<p>This API is used for the Post delete.</p>
+
+<p>This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
    http://base_url.com/api/:id/post <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -1174,7 +1200,7 @@ This API is an authentication API request in which needs to pass auth token in t
 <h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
-<p>The Kittn API uses the following error codes:</p>
+<p>The Kannect API uses the following error codes:</p>
 
 <table><thead>
 <tr>
