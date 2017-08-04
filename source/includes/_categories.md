@@ -4,13 +4,13 @@
 ##Categories
 
 This API is used for the list of categories. 
-This is open API where Auth token is not required to be passed in header.
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shells
   curl -X GET \
   http://base_url.com/api/categories \
  -H 'accept: application/json' \
- -H 'authorization: Token token=treehsgstsdde3573' \
+ -H 'authorization: Token token=hjduueuhfufu123' \
  -H 'cache-control: no-cache' \
  -H 'content-type: application/json' \
 ```
@@ -31,7 +31,6 @@ This is open API where Auth token is not required to be passed in header.
   }
 ```
 
->The above command returns JSON structured like this for failure if ssn is invalid:
 
 ###HTTP Request
 
@@ -44,4 +43,6 @@ This is open API where Auth token is not required to be passed in header.
               |         |         |             |
               |         |         |             |
         
+ <aside class="success">status:200 OK</aside>
+ <aside class="warning">status:401 Unauthorized  </aside>
  

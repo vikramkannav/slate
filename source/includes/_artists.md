@@ -10,7 +10,7 @@ This API is an authentication API request in which needs to pass auth token in t
   curl -X GET \
     http://base_url.com/api/users \
     -H 'accept: application/json' \
-    -H 'authorization: Token token=treehsgstsdde3573' \
+    -H 'authorization: Token token=hjduueuhfufu123' \
     -H 'cache-control: no-cache' \
     -H 'content-type: application/json' \
   ```
@@ -30,7 +30,6 @@ This API is an authentication API request in which needs to pass auth token in t
     	]
     }
 ```
->The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
@@ -43,8 +42,8 @@ This API is an authentication API request in which needs to pass auth token in t
               |         |         |            |
              |         |         |            |
 
-<aside class="success">Ok</aside>
-<aside class="warning">401 Unauthorized </aside>
+<aside class="success">status:200 OK</aside>
+<aside class="warning">status:401 Unauthorized </aside>
 
 ## Update User
 
@@ -52,7 +51,7 @@ This API is an authentication API request in which needs to pass auth token in t
 curl -X PUT \
   http://base_url/api/users \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   -d '  {
@@ -91,9 +90,18 @@ curl -X PUT \
 ```
 >The above command returns JSON structured like this for failure:
 
+```json
+{
+"error" :{
+    "email": "email incorrect"
+    "file_type":"invalid"
+    }
+```
+
+
 ###HTTP Request
 
-`PUT http://base_url.com/api/users`
+`PUT http://base_url.com/api/user`
 
 ### Parameters
 
@@ -110,8 +118,8 @@ curl -X PUT \
     play_instrument | boolean | true | play_instrument user |
     instrument_type | string  | true | instrument_type type of the user|
 
-<aside class="success">Ok</aside>
-<aside class="warning"> 422 Unprocessable. </aside>
+<aside class="success">status:200 OK</aside>
+<aside class="warning">status:422 Unprocessable. </aside>
 
 
     
@@ -121,7 +129,7 @@ curl -X PUT \
    curl -X GET \
    http://base_url.com/api/followers \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
  ```
@@ -141,7 +149,6 @@ curl -X PUT \
   	]
   }
 ```
->The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
@@ -154,7 +161,7 @@ curl -X PUT \
              |          |         |            |
              |          |         |            |
         
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 <aside class="warning"> 401 Unauthorized </aside>
 
 
@@ -164,7 +171,7 @@ curl -X PUT \
    curl -X GET \
    http://base_url.com/api/following \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
 ```
@@ -184,7 +191,6 @@ curl -X PUT \
    	]
    }
 ```
->The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
@@ -197,7 +203,7 @@ curl -X PUT \
                  |          |         |            |
                  |          |         |            |
             
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 <aside class="warning">401 Unauthorized </aside>
 
 
@@ -208,7 +214,7 @@ curl -X PUT \
 curl -X POST \
   http://base_url.com/api/users/:id/follow \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
   ```
@@ -220,7 +226,6 @@ curl -X POST \
      "message": "User follow successfully."
     }
 ```
->The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
@@ -233,7 +238,7 @@ curl -X POST \
              |          |         |              |
              |          |         |               |
              
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 <aside class="warning">422 Unprocessable entry.</aside>
 
 
@@ -243,7 +248,7 @@ curl -X POST \
  curl -X DELETE \
      http://base_url.com/api/unfollow/ \
      -H 'accept: application/json' \
-     -H 'authorization: Token token=treehsgstsdde3573' \
+     -H 'authorization: Token token=hjduueuhfufu123' \
      -H 'cache-control: no-cache' \
      -H 'content-type: application/json' \
 ```
@@ -255,7 +260,6 @@ curl -X POST \
      "message": "User Unfollow successfully."
     }
 ```
->The above command returns JSON structured like this for failure:
 
 ###HTTP Request
 
@@ -268,3 +272,5 @@ curl -X POST \
              |          |         |              |
              |          |         |               |
 
+<aside class="success">status:200 OK</aside>
+<aside class="warning"> 401 Unauthorized </aside>

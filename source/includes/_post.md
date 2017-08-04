@@ -9,7 +9,7 @@ This API is an authentication API request in which needs to pass auth token in t
  curl -X GET \
    http//base_url.com/api/posts \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
 ```
@@ -50,7 +50,7 @@ This API is an authentication API request in which needs to pass auth token in t
               |         |         |             |
               |        |          |             |
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 <aside class="warning"> 401 Unauthorized.</aside>
 
 
@@ -61,9 +61,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell
 curl -X POST \
-   http://base_url.com/api/posts \
+   http://base_url.com/api/post \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
    -d '{
@@ -86,9 +86,15 @@ curl -X POST \
    ```
 >The above command returns JSON structured like this for failure:
 
+```json
+{
+  "error": "Please enter the valid description"
+}   
+```
+
 ###HTTP Request
 
-`POST http://base_url.com/api/posts`
+`POST http://base_url.com/api/post`
 
 ### Parameters
 
@@ -97,7 +103,7 @@ curl -X POST \
     description | string | true   | description of the post| 
 
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 <aside class="warning"> 422 Unprocessable entry.</aside>
 
 
@@ -110,7 +116,7 @@ This API is an authentication API request in which needs to pass auth token in t
  curl -X PUT \
    http://base_url.com/api/posts/ \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
  -d '{
@@ -133,9 +139,15 @@ This API is an authentication API request in which needs to pass auth token in t
 ```
 >The above command returns JSON structured like this for failure:
 
+```json
+{
+  "error": "Please enter the valid description"
+}   
+```
+
 ###HTTP Request
 
-`PUT http://base_url.com/api/posts/:id`
+`PUT http://base_url.com/api/:id/post`
 
 
 ### Parameters
@@ -144,7 +156,7 @@ This API is an authentication API request in which needs to pass auth token in t
      --------- | ------- | ------- | ----------- | -----------
      description | string | true  | description of the post| 
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 <aside class="warning"> 422 Unprocessable entry.6t</aside>
 
 
@@ -155,9 +167,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```shell
  curl -X DELETE \
-   http://base_url.com/api/posts/ \
+   http://base_url.com/api/:id/post \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
+  -H 'authorization: Token token=hjduueuhfufu123' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
 ```
@@ -169,12 +181,11 @@ This API is an authentication API request in which needs to pass auth token in t
    	"message": "Post deleted successfully"
    }
 ```
->The above command returns JSON structured like this for failure:
 
 
 ###HTTP Request
 
-`DELETE http://base_url.com/api/posts/:id`
+`DELETE http://base_url.com/api/:id/post`
 
 ### Parameters
 
@@ -183,3 +194,5 @@ This API is an authentication API request in which needs to pass auth token in t
              |          |        |              |
   
 
+<aside class="success">status:200 OK</aside>
+<aside class="warning"> 401 Unauthorized </aside>

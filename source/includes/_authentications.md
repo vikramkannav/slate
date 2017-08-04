@@ -21,7 +21,7 @@ curl -X POST \
 > The above command returns JSON structured like this:
 
 ```json
-  {
+   {
   "message": "OTP is sent successfully"
    }
 ```
@@ -54,8 +54,7 @@ curl -X POST \
 ## Verify OTP
 
 This API is used for the mobile number verification with OTP number.
-This API is an authentication API request in which needs to pass auth token in the request header.
-
+This is open API where Auth token is not required to be passed in header.
 
 ```shell
 curl -X POST \
@@ -90,10 +89,15 @@ curl -X POST \
      "auth_token":"treehsgstsdde3573"
   }
 ```
+>The above command returns JSON structured like this for failure:
 
-
-
-
+```json
+  {
+    "error": {
+       "message": "Please enter the correct OTP number"
+    }
+  }
+```
 
 ###HTTP Request
 
@@ -105,10 +109,11 @@ curl -X POST \
     --------- | ------- | ------- | ----------- | -----------
     mobile_number | integer |true | mobile_number of the user| 
     otp_number | integer |true   | otp_number recived on the number     | 
-    country_code | integer |true | country_code of the user country   | +91
+    country_code | integer |true | country_code of the user country   | +1
      
-<aside class="success">Ok</aside>
-<aside class="warning">422 Unprocessable entry </aside>
+<aside class="success">status:200 OK</aside>
+<aside class="warning">status:422 Unprocessable entry.</aside>
+
 
 ## Retrieve access Token
 
@@ -122,8 +127,7 @@ curl -X POST \
   -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
-  -H 'postman-token: 61fe122e-6edc-982a-8d55-6ffa9fad4421' \
-  -d '{
+ -d '{
 	"refresh_token": "wjhdduyd6378399"
 }'
 ```
@@ -145,11 +149,19 @@ curl -X POST \
    		"instrument_name": "",
    		  		
    	},
-   	"refresh_token": "wjhdduyd6378399" ,
-   	"auth_token":"treehsgstsdde3573"
+   	"refresh_token": "absgdtydiid123" ,
+   	"auth_token":"hjduueuhfufu123"
    }
 ```
+>The above command returns JSON structured like this for failure:
 
+```json
+  {
+    "error": {
+       "message": "Employee not found"
+    }
+  }
+```
 
 ###HTTP Request
 
@@ -162,6 +174,6 @@ curl -X POST \
     refresh_token | string |true | refresh_token of the user| 
     
      
-<aside class="success">Ok</aside>
-<aside class="warning"> 422 Unprocessable entry. </aside>
+<aside class="success">status:200 OK</aside>
+<aside class="warning">status: 422 Unprocessable entry. </aside>
 
