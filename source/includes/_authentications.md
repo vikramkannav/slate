@@ -127,7 +127,6 @@ This API is an authentication API request in which needs to pass auth token in t
 curl -X POST \
   http://base_url/api/refresh_token \
   -H 'accept: application/json' \
-  -H 'authorization: Token token=treehsgstsdde3573' \
   -H 'cache-control: no-cache' \
   -H 'content-type: application/json' \
  -d '{
