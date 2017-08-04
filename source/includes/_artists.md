@@ -3,7 +3,8 @@
 
 ## Users
 
-This API is used for the user list.
+This API is used for the user list. 
+
 This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
@@ -46,6 +47,10 @@ This API is an authentication API request in which needs to pass auth token in t
 <aside class="warning">status:401 Unauthorized </aside>
 
 ## Update User
+
+This API is used for the user update. 
+
+This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
 curl -X PUT \
@@ -125,6 +130,10 @@ curl -X PUT \
     
 ## Followers
 
+This API is used for the show followers
+
+This API is an authentication API request in which needs to pass auth token in the request header.
+
 ```shell
    curl -X GET \
    http://base_url.com/api/followers \
@@ -166,6 +175,12 @@ curl -X PUT \
 
 
 ## Following
+
+This API is used for the show followering.
+
+This API is an authentication API request in which needs to pass auth token in the request header.
+
+
 
 ```shell
    curl -X GET \
@@ -210,6 +225,11 @@ curl -X PUT \
 
 ## Follow
 
+This API is used for the follow.
+
+This API is an authentication API request in which needs to pass auth token in the request header.
+
+
 ```shell
 curl -X POST \
   http://base_url.com/api/users/:id/follow \
@@ -243,6 +263,11 @@ curl -X POST \
 
 
 ##Unfollow
+
+This API is used for the unfollow.
+
+This API is an authentication API request in which needs to pass auth token in the request header.
+
 
 ```shell
  curl -X DELETE \

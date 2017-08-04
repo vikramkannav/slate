@@ -2,8 +2,9 @@
 
 ## OTP generation
 
-This API is used for the OTP generation.
-This is open API where Auth token is not required to be passed in header.
+This API is used for the OTP generation. 
+
+This is open API where Auth token is not required to be passed in the header.
 
 ```shell
 curl -X POST \
@@ -53,8 +54,10 @@ curl -X POST \
 
 ## Verify OTP
 
-This API is used for the mobile number verification with OTP number.
-This is open API where Auth token is not required to be passed in header.
+This API is used for the mobile number verification with OTP number. 
+
+This is open API where Auth token is not required to be passed in the header.
+
 
 ```shell
 curl -X POST \

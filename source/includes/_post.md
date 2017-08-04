@@ -2,7 +2,8 @@
 
 ## Posts
 
-This API is used for the list of post.
+This API is used for the list of post. 
+
 This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
@@ -56,7 +57,9 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ## Create Post
 
+
 This API is used for the Post creation.
+
 This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell
@@ -110,6 +113,7 @@ curl -X POST \
 ## Update Post
 
 This API is used for Post update.
+
 This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell 
@@ -163,6 +167,7 @@ This API is an authentication API request in which needs to pass auth token in t
 ## Delete Post
 
 This API is used for the Post delete.
+
 This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shell

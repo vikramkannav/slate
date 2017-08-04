@@ -2,8 +2,8 @@
 #Categories
 
 ##Categories
-
 This API is used for the list of categories. 
+
 This API is an authentication API request in which needs to pass auth token in the request header.
 
 ```shells
