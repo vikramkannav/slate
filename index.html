@@ -283,6 +283,9 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#errors" class="toc-h1 toc-link" data-title="Errors">Errors</a>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='#'>Sign Up for a Developer Key</a></li>
@@ -325,7 +328,7 @@ This is open API where Auth token is not required to be passed in header.</p>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
-<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+<pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OTP is sent successfully"</span><span class="w">
    </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -370,7 +373,7 @@ This is open API where Auth token is not required to be passed in header.</p>
 <aside class="warning">status:422 Unprocessable entry.</aside>
 <h2 id='verify-otp'>Verify OTP</h2>
 <p>This API is used for the mobile number verification with OTP number.
-This API is an authentication API request in which needs to pass auth token in the request header.</p>
+This is open API where Auth token is not required to be passed in header.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
    http://base_url.com/api/verify <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
@@ -400,6 +403,15 @@ This API is an authentication API request in which needs to pass auth token in t
         </span><span class="p">},</span><span class="w">
     </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wjhdduyd6378399"</span><span class="w"> </span><span class="p">,</span><span class="w">
      </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"treehsgstsdde3573"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this for failure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter the correct OTP number"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST http://base_url.com/api/verify</code></p>
@@ -432,13 +444,13 @@ This API is an authentication API request in which needs to pass auth token in t
 <td>integer</td>
 <td>true</td>
 <td>country_code of the user country</td>
-<td>+91</td>
+<td>+1</td>
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
-<aside class="warning">422 Unprocessable entry </aside>
+<aside class="warning">status:422 Unprocessable entry.</aside>
 <h2 id='retrieve-access-token'>Retrieve access Token</h2>
 <p>This API is used for the regenerating the auth token via refresh token.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
@@ -448,8 +460,7 @@ This API is an authentication API request in which needs to pass auth token in t
   -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'postman-token: 61fe122e-6edc-982a-8d55-6ffa9fad4421'</span> <span class="se">\</span>
-  -d <span class="s1">'{
+ -d <span class="s1">'{
     "refresh_token": "wjhdduyd6378399"
 }'</span>
 </code></pre>
@@ -470,9 +481,18 @@ This API is an authentication API request in which needs to pass auth token in t
         </span><span class="s2">"instrument_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
 
     </span><span class="p">},</span><span class="w">
-    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"wjhdduyd6378399"</span><span class="w"> </span><span class="p">,</span><span class="w">
-    </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"treehsgstsdde3573"</span><span class="w">
+    </span><span class="s2">"refresh_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"absgdtydiid123"</span><span class="w"> </span><span class="p">,</span><span class="w">
+    </span><span class="s2">"auth_token"</span><span class="p">:</span><span class="s2">"hjduueuhfufu123"</span><span class="w">
    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this for failure:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Employee not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST http://base_url.com/api/refresh_token</code></p>
 <h3 id='parameters-3'>Parameters</h3>
@@ -494,16 +514,16 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
-<aside class="warning"> 422 Unprocessable entry. </aside>
+<aside class="warning">status: 422 Unprocessable entry. </aside>
 <h1 id='categories'>Categories</h1><h2 id='categories-2'>Categories</h2>
 <p>This API is used for the list of categories. 
-This is open API where Auth token is not required to be passed in header.</p>
+This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight plaintext"><code>  curl -X GET \
   http://base_url.com/api/categories \
  -H 'accept: application/json' \
- -H 'authorization: Token token=treehsgstsdde3573' \
+ -H 'authorization: Token token=hjduueuhfufu123' \
  -H 'cache-control: no-cache' \
  -H 'content-type: application/json' \
 </code></pre>
@@ -521,11 +541,7 @@ This is open API where Auth token is not required to be passed in header.</p>
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure if ssn is invalid:</p>
-</blockquote>
-<h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://base_url.com/api/categories</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
@@ -552,13 +568,16 @@ This is open API where Auth token is not required to be passed in header.</p>
 <td></td>
 </tr>
 </tbody></table>
+
+<p><aside class="success">status:200 OK</aside>
+ <aside class="warning">status:401 Unauthorized  </aside></p>
 <h1 id='users'>Users</h1><h2 id='users-2'>Users</h2>
 <p>This API is used for the user list.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code>  curl -X GET <span class="se">\</span>
     http://base_url.com/api/users <span class="se">\</span>
     -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-    -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+    -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
     -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
     -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -576,11 +595,7 @@ This API is an authentication API request in which needs to pass auth token in t
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure:</p>
-</blockquote>
-<h3 id='http-request'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
 <p><code>GET http://base_url.com/api/users</code></p>
 <h3 id='parameters'>Parameters</h3>
 <table><thead>
@@ -608,13 +623,13 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
-<aside class="warning">401 Unauthorized </aside>
+<aside class="warning">status:401 Unauthorized </aside>
 <h2 id='update-user'>Update User</h2><pre class="highlight shell tab-shell"><code>curl -X PUT <span class="se">\</span>
   http://base_url/api/users <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
   -d <span class="s1">'  {
@@ -653,8 +668,13 @@ This API is an authentication API request in which needs to pass auth token in t
 <blockquote>
 <p>The above command returns JSON structured like this for failure:</p>
 </blockquote>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>PUT http://base_url.com/api/users</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+</span><span class="s2">"error"</span><span class="w"> </span><span class="p">:{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email incorrect"</span><span class="w">
+    </span><span class="s2">"file_type"</span><span class="p">:</span><span class="s2">"invalid"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT http://base_url.com/api/user</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
@@ -737,13 +757,13 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
-<aside class="warning"> 422 Unprocessable. </aside>
+<aside class="warning">status:422 Unprocessable. </aside>
 <h2 id='followers'>Followers</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
    http://base_url.com/api/followers <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -761,11 +781,7 @@ This API is an authentication API request in which needs to pass auth token in t
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure:</p>
-</blockquote>
-<h3 id='http-request-3'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
 <p><code>GET http://base_url.com/api/followers</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <table><thead>
@@ -793,13 +809,13 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
 <aside class="warning"> 401 Unauthorized </aside>
 <h2 id='following'>Following</h2><pre class="highlight shell tab-shell"><code>   curl -X GET <span class="se">\</span>
    http://base_url.com/api/following <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -817,11 +833,7 @@ This API is an authentication API request in which needs to pass auth token in t
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure:</p>
-</blockquote>
-<h3 id='http-request-4'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
 <p><code>GET http://base_url.com/api/following</code></p>
 <h3 id='parameters-4'>Parameters</h3>
 <table><thead>
@@ -849,13 +861,13 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
 <aside class="warning">401 Unauthorized </aside>
 <h2 id='follow'>Follow</h2><pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
   http://base_url.com/api/users/:id/follow <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -865,11 +877,7 @@ This API is an authentication API request in which needs to pass auth token in t
 <pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User follow successfully."</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure:</p>
-</blockquote>
-<h3 id='http-request-5'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST http://base_url.com/api/users/:id/follow</code></p>
 <h3 id='parameters-5'>Parameters</h3>
 <table><thead>
@@ -897,13 +905,13 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
 <aside class="warning">422 Unprocessable entry.</aside>
 <h2 id='unfollow'>Unfollow</h2><pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
      http://base_url.com/api/unfollow/ <span class="se">\</span>
      -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-     -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+     -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
      -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
      -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -913,11 +921,7 @@ This API is an authentication API request in which needs to pass auth token in t
 <pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
      </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User Unfollow successfully."</span><span class="w">
     </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure:</p>
-</blockquote>
-<h3 id='http-request-6'>HTTP Request</h3>
+</span></code></pre><h3 id='http-request-6'>HTTP Request</h3>
 <p><code>DELETE http://base_url.com/api/users/:id/unfollow</code></p>
 <h3 id='parameters-6'>Parameters</h3>
 <table><thead>
@@ -944,13 +948,17 @@ This API is an authentication API request in which needs to pass auth token in t
 <td></td>
 </tr>
 </tbody></table>
+
+<aside class="success">status:200 OK</aside>
+
+<aside class="warning"> 401 Unauthorized </aside>
 <h1 id='post'>Post</h1><h2 id='posts'>Posts</h2>
 <p>This API is used for the list of post.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code> curl -X GET <span class="se">\</span>
    http//base_url.com/api/posts <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -1008,16 +1016,16 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
 <aside class="warning"> 401 Unauthorized.</aside>
 <h2 id='create-post'>Create Post</h2>
 <p>This API is used for the Post creation.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
-   http://base_url.com/api/posts <span class="se">\</span>
+   http://base_url.com/api/post <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
    -d <span class="s1">'{
@@ -1040,8 +1048,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <blockquote>
 <p>The above command returns JSON structured like this for failure:</p>
 </blockquote>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>POST http://base_url.com/api/posts</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter the valid description"</span><span class="w">
+</span><span class="p">}</span><span class="w">   
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST http://base_url.com/api/post</code></p>
 <h3 id='parameters-2'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1061,7 +1072,7 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
 <aside class="warning"> 422 Unprocessable entry.</aside>
 <h2 id='update-post'>Update Post</h2>
@@ -1070,7 +1081,7 @@ This API is an authentication API request in which needs to pass auth token in t
 <pre class="highlight shell tab-shell"><code> curl -X PUT <span class="se">\</span>
    http://base_url.com/api/posts/ <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
  -d <span class="s1">'{
@@ -1093,8 +1104,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <blockquote>
 <p>The above command returns JSON structured like this for failure:</p>
 </blockquote>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>PUT http://base_url.com/api/posts/:id</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"error"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please enter the valid description"</span><span class="w">
+</span><span class="p">}</span><span class="w">   
+</span></code></pre><h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT http://base_url.com/api/:id/post</code></p>
 <h3 id='parameters-3'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1114,16 +1128,16 @@ This API is an authentication API request in which needs to pass auth token in t
 </tr>
 </tbody></table>
 
-<aside class="success">Ok</aside>
+<aside class="success">status:200 OK</aside>
 
 <aside class="warning"> 422 Unprocessable entry.6t</aside>
 <h2 id='delete-post'>Delete Post</h2>
 <p>This API is used for the Post delete.
 This API is an authentication API request in which needs to pass auth token in the request header.</p>
 <pre class="highlight shell tab-shell"><code> curl -X DELETE <span class="se">\</span>
-   http://base_url.com/api/posts/ <span class="se">\</span>
+   http://base_url.com/api/:id/post <span class="se">\</span>
   -H <span class="s1">'accept: application/json'</span> <span class="se">\</span>
-  -H <span class="s1">'authorization: Token token=treehsgstsdde3573'</span> <span class="se">\</span>
+  -H <span class="s1">'authorization: Token token=hjduueuhfufu123'</span> <span class="se">\</span>
   -H <span class="s1">'cache-control: no-cache'</span> <span class="se">\</span>
   -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 </code></pre>
@@ -1133,12 +1147,8 @@ This API is an authentication API request in which needs to pass auth token in t
 <pre class="highlight json tab-json"><code><span class="w">   </span><span class="p">{</span><span class="w">
     </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Post deleted successfully"</span><span class="w">
    </span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this for failure:</p>
-</blockquote>
-<h3 id='http-request-4'>HTTP Request</h3>
-<p><code>DELETE http://base_url.com/api/posts/:id</code></p>
+</span></code></pre><h3 id='http-request-4'>HTTP Request</h3>
+<p><code>DELETE http://base_url.com/api/:id/post</code></p>
 <h3 id='parameters-4'>Parameters</h3>
 <table><thead>
 <tr>
@@ -1157,8 +1167,11 @@ This API is an authentication API request in which needs to pass auth token in t
 <td></td>
 </tr>
 </tbody></table>
-<p># Errors</p>
 
+<aside class="success">status:200 OK</aside>
+
+<aside class="warning"> 401 Unauthorized </aside>
+<h1 id='errors'>Errors</h1>
 <aside class="notice">This error section is stored in a separate file in `includes/_errors.md`. Slate allows you to optionally separate out your docs into many files...just save them to the `includes` folder and add them to the top of your `index.md`'s frontmatter. Files are included in the order listed.</aside>
 
 <p>The Kittn API uses the following error codes:</p>
@@ -1171,47 +1184,115 @@ This API is an authentication API request in which needs to pass auth token in t
 </thead><tbody>
 <tr>
 <td>400</td>
-<td>Bad Request -- Your request sucks.</td>
+<td>Bad Request</td>
 </tr>
 <tr>
 <td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>Unauthorized</td>
+</tr>
+<tr>
+<td>402</td>
+<td>Payment Required</td>
 </tr>
 <tr>
 <td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
+<td>Forbidden</td>
 </tr>
 <tr>
 <td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
+<td>Not Found</td>
 </tr>
 <tr>
 <td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
+<td>Method Not Allowed</td>
 </tr>
 <tr>
 <td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
+<td>Not Acceptable</td>
+</tr>
+<tr>
+<td>407</td>
+<td>Proxy Authentication Required</td>
+</tr>
+<tr>
+<td>408</td>
+<td>Request Timeout</td>
+</tr>
+<tr>
+<td>409</td>
+<td>Conflict</td>
 </tr>
 <tr>
 <td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
+<td>Gone</td>
+</tr>
+<tr>
+<td>411</td>
+<td>Length Required</td>
+</tr>
+<tr>
+<td>412</td>
+<td>Precondition Failed</td>
+</tr>
+<tr>
+<td>413</td>
+<td>Payload Too Large</td>
+</tr>
+<tr>
+<td>414</td>
+<td>URI Too Long</td>
+</tr>
+<tr>
+<td>415</td>
+<td>Unsupported Media Type</td>
+</tr>
+<tr>
+<td>416</td>
+<td>Range Not Satisfiable</td>
+</tr>
+<tr>
+<td>417</td>
+<td>Expectation Failed</td>
 </tr>
 <tr>
 <td>418</td>
-<td>I&#39;m a teapot.</td>
+<td>I&#39;m a teapot</td>
+</tr>
+<tr>
+<td>421</td>
+<td>Misdirected Request</td>
+</tr>
+<tr>
+<td>422</td>
+<td>Unprocessable Entity</td>
+</tr>
+<tr>
+<td>423</td>
+<td>Locked</td>
+</tr>
+<tr>
+<td>424</td>
+<td>Failed Dependency</td>
+</tr>
+<tr>
+<td>426</td>
+<td>Upgrade Required</td>
+</tr>
+<tr>
+<td>428</td>
+<td>Precondition Required</td>
 </tr>
 <tr>
 <td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
+<td>Too Many Requests</td>
 </tr>
 <tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
+<td>431</td>
+<td>Request Header Fields Too Large</td>
 </tr>
 <tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>451</td>
+<td>Unavailable For Legal Reasons</td>
 </tr>
 </tbody></table>
 
