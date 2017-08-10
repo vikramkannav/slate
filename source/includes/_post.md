@@ -24,7 +24,7 @@ This API is an authentication API request in which needs to pass auth token in t
 			"description": "post_description",
 			"user": {
 				"id": 1,
-				"name": "vikram"				
+				"name": "vikram"
 			}
 		},
 		{
@@ -32,11 +32,10 @@ This API is an authentication API request in which needs to pass auth token in t
 			"description": "post_description",
 			"user": {
 				"id": 2,
-				"name": "vikram"				
+				"name": "vikram"
 			}
 		}
-	]	
-}
+	]
  ```
 >The above command returns JSON structured like this for failure:
 
@@ -103,7 +102,7 @@ curl -X POST \
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    description | string | true   | description of the post| 
+    description | string | true   | Description of the post| 
 
 
 <aside class="success">status:200 OK</aside>
@@ -138,7 +137,7 @@ This API is an authentication API request in which needs to pass auth token in t
    		"id": 1,
    		"description": "post_description"
    	},
-   	 	"message": "Post Updated successfully"
+   	"message": "Post Updated successfully"
    }
 ```
 >The above command returns JSON structured like this for failure:
@@ -158,7 +157,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
      Parameter | Type | Required | Description| Default
      --------- | ------- | ------- | ----------- | -----------
-     description | string | true  | description of the post| 
+     description | string | true  | Description of the post| 
 
 <aside class="success">status:200 OK</aside>
 <aside class="warning"> 422 Unprocessable entry.6t</aside>

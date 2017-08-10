@@ -112,16 +112,16 @@ curl -X PUT \
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    first_name| string | true | first_name of the user |   
-    last_name|  string | true | last_name of the user|  
-    email_id |  string   | true | email_id of the user the user|  
-    category|   string | true | category |  Artist
-    age|   number | true | age of the user     |  
-    profession | string | true | profession of the user |
-    work_on_album | boolean | true | work_on_album of the user|
-    file_type | string    | true | file_type  |
-    play_instrument | boolean | true | play_instrument user |
-    instrument_type | string  | true | instrument_type type of the user|
+    first_name| string | true | First name of the user |   
+    last_name|  string | true | Last name of the user|  
+    email_id |  string   | true | Email adrees of the user|  
+    category|   string | true | Category select by the user |  Artist
+    age|   number | true | Age of the user     |  
+    profession | string | true | Profession of the user |
+    work_on_album | boolean | true | Work on album by the user|
+    file_type | string    | true | File type select by the user  |
+    play_instrument | boolean | true | Play instrument play by user |
+    instrument_type | string  | true | Instrument type select by the user|
 
 <aside class="success">status:200 OK</aside>
 <aside class="warning">status:422 Unprocessable. </aside>
@@ -176,7 +176,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ## Following
 
-This API is used for the show followering.
+This API is used for the show following.
 
 This API is an authentication API request in which needs to pass auth token in the request header.
 
@@ -194,17 +194,17 @@ This API is an authentication API request in which needs to pass auth token in t
 > The above command returns JSON structured like this:
 
 ```json
-   {
-   	"users": [{
-   			"id": 3,
-   			"name": "sumit"
-   		},
-   		{
-   			"id": 6,
-   			"name": "ram"
-   		}
-   	]
-   }
+ {
+ 	"users": [{
+ 			"id": 3,
+ 			"name": "sumit"
+ 		},
+ 		{
+ 			"id": 6,
+ 			"name": "ram"
+ 		}
+ 	]
+ }
 ```
 
 ###HTTP Request
@@ -282,7 +282,7 @@ This API is an authentication API request in which needs to pass auth token in t
 
 ```json
    {
-     "message": "User Unfollow successfully."
+     "message": "User un follow successfully."
     }
 ```
 

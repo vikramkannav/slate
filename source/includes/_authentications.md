@@ -45,8 +45,8 @@ curl -X POST \
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | mobile_number | 
-    country_code | integer |true | country_code      | +1
+    mobile_number | integer |true | Mobile number of the user | 
+    country_code | integer |true | Country code of the user      | +1
     
 <aside class="success">status:200 OK</aside>
 <aside class="warning">status:422 Unprocessable entry.</aside>
@@ -110,9 +110,9 @@ curl -X POST \
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    mobile_number | integer |true | mobile_number of the user| 
-    otp_number | integer |true   | otp_number recived on the number     | 
-    country_code | integer |true | country_code of the user country   | +1
+    mobile_number | integer |true | Mobile number of the user| 
+    otp_number | integer |true   | OTP number recived by the user     | 
+    country_code | integer |true | Country code of the user   | +1
      
 <aside class="success">status:200 OK</aside>
 <aside class="warning">status:422 Unprocessable entry.</aside>
@@ -173,7 +173,7 @@ curl -X POST \
 
     Parameter | Type | Required | Description| Default
     --------- | ------- | ------- | ----------- | -----------
-    refresh_token | string |true | refresh_token of the user| 
+    refresh_token | string |true | Refresh token of the user| 
     
      
 <aside class="success">status:200 OK</aside>
